@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Click &amp; Go Global &mdash; Your Life, Expanded.</title>
+<meta name="description" content="A Dubai-based global consulting ecosystem. We help founders, personal brands, and entrepreneurs expand internationally.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#C8788A;--rose-light:#E8B4BC;--rose-pale:#F5E8EB;--gold:#C4A06A;--gold-light:#E2C99A;--champagne:#F7F0E6;--navy:#0F1522;--navy-mid:#1A2238;--white:#FAFAF8;--off-white:#F2EDE8;--text-dark:#0F1522;--text-mid:#4A4540;--text-muted:#8A8480;--serif:'Cormorant Garant',Georgia,serif;--sans:'DM Sans',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--white);color:var(--text-dark);overflow-x:hidden}
+::selection{background:rgba(200,120,138,0.2)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:28px 60px;display:flex;align-items:center;justify-content:space-between;transition:all 0.5s ease}
+nav.scrolled{padding:16px 60px;background:rgba(250,250,248,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(196,160,106,0.15)}
+.nav-logo{font-family:var(--serif);font-size:17px;font-weight:500;letter-spacing:0.04em;color:var(--white);text-decoration:none;transition:color 0.4s}
+.nav-logo span{color:var(--gold-light);transition:color 0.4s}
+nav.scrolled .nav-logo{color:var(--text-dark)}
+nav.scrolled .nav-logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+.nav-links a{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.75);text-decoration:none;transition:color 0.3s}
+nav.scrolled .nav-links a{color:var(--text-muted)}
+.nav-links a:hover{color:var(--white)}
+nav.scrolled .nav-links a:hover{color:var(--text-dark)}
+.nav-cta{font-size:12px;font-weight:500;letter-spacing:0.06em;color:var(--text-dark);background:var(--white);padding:10px 22px;border-radius:2px;text-decoration:none;transition:all 0.3s}
+nav.scrolled .nav-cta{background:var(--rose);color:var(--white)}
+.nav-cta:hover{transform:translateY(-1px)}
+.nav-right{display:flex;align-items:center;gap:14px}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:700px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,#0a0f1e 0%,#111827 40%,#1a1428 100%)}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity 1.4s ease}
+.hero-video.loaded{opacity:1}
+.hero-skyline{position:absolute;inset:0;transition:opacity 1s ease}
+.hero-skyline svg{position:absolute;bottom:0;left:0;width:100%;height:100%}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 90%,rgba(180,120,100,0.2) 0%,transparent 60%);pointer-events:none}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,15,30,0.4) 0%,rgba(10,15,30,0.05) 45%,rgba(10,15,30,0.8) 100%);pointer-events:none}
+.hero-content{position:relative;z-index:2;padding:0 60px 80px;max-width:860px}
+.hero-eyebrow{font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);font-weight:300;margin-bottom:28px;display:flex;align-items:center;gap:16px;opacity:0;animation:fadeUp 0.8s ease 0.6s forwards}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold-light)}
+.hero-headline{font-family:var(--serif);font-weight:300;font-size:clamp(52px,7vw,96px);line-height:1.0;color:var(--white);letter-spacing:-0.01em;margin-bottom:32px;opacity:0;animation:fadeUp 1s ease 0.9s forwards}
+.hero-headline em{font-style:italic;color:var(--rose-light)}
+.hero-headline .outline{-webkit-text-stroke:1px rgba(255,255,255,0.6);color:transparent}
+.hero-subhead{font-size:16px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.72);max-width:480px;margin-bottom:48px;opacity:0;animation:fadeUp 0.9s ease 1.2s forwards}
+.hero-actions{display:flex;align-items:center;gap:24px;opacity:0;animation:fadeUp 0.8s ease 1.5s forwards;flex-wrap:wrap}
+.hero-scroll{position:absolute;bottom:40px;left:60px;z-index:2;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeIn 1s ease 2.2s forwards}
+.scroll-line{width:40px;height:1px;background:rgba(255,255,255,0.3);position:relative;overflow:hidden}
+.scroll-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--gold-light);animation:scrollSlide 2.5s ease-in-out 2.8s infinite}
+.scroll-text{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.hero-meta{position:absolute;bottom:40px;right:60px;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:5px;opacity:0;animation:fadeIn 1s ease 2s forwards}
+.hero-meta span{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.hero-line{position:absolute;left:60px;top:50%;transform:translateY(-50%);width:1px;height:0;background:linear-gradient(to bottom,transparent,rgba(226,201,154,0.6),transparent);animation:lineGrow 2s ease-out 0.8s forwards}
+
+/* BUTTONS */
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--rose);color:var(--white);font-size:13px;font-weight:500;letter-spacing:0.06em;padding:16px 32px;border-radius:2px;text-decoration:none;transition:all 0.3s}
+.btn-primary:hover{background:#B5667A;transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;padding-bottom:2px;border-bottom:1px solid rgba(255,255,255,0.3);transition:all 0.3s}
+.btn-ghost:hover{color:var(--white);border-color:var(--white)}
+.btn-outline{display:inline-flex;align-items:center;gap:10px;color:var(--text-dark);font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;padding-bottom:3px;border-bottom:1px solid var(--text-dark);transition:all 0.3s}
+.btn-outline:hover{color:var(--rose);border-color:var(--rose)}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;background:transparent;border:1px solid rgba(196,160,106,0.4);color:var(--gold-light);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;padding:14px 28px;border-radius:2px;text-decoration:none;transition:all 0.3s}
+.btn-gold:hover{background:rgba(196,160,106,0.1);border-color:var(--gold-light);color:var(--white)}
+
+/* TRUST BAR */
+.trust-bar{background:var(--navy);padding:22px 60px;display:flex;align-items:center;justify-content:space-around}
+.trust-item{display:flex;align-items:center;gap:10px}
+.trust-num{font-family:var(--serif);font-size:26px;color:var(--gold-light);font-weight:400}
+.trust-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);line-height:1.5}
+.trust-divider{width:1px;height:32px;background:rgba(255,255,255,0.08)}
+
+/* COMMON */
+.section-eyebrow{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.section-eyebrow::before{content:'';width:20px;height:1px;background:var(--gold);display:block}
+.section-headline{font-family:var(--serif);font-size:clamp(36px,4vw,58px);font-weight:300;line-height:1.05;color:var(--text-dark)}
+.section-headline em{font-style:italic;color:var(--rose)}
+
+/* MANIFESTO */
+.manifesto{padding:140px 60px;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;background:var(--white)}
+.manifesto-headline{font-family:var(--serif);font-size:clamp(42px,5vw,68px);font-weight:300;line-height:1.05;color:var(--text-dark)}
+.manifesto-headline em{font-style:italic;color:var(--rose)}
+.manifesto-deco{width:100px;height:100px;border:1px solid rgba(196,160,106,0.2);border-radius:50%;margin-top:40px}
+.manifesto-body{font-size:16px;font-weight:300;line-height:1.8;color:var(--text-mid);margin-bottom:40px}
+.manifesto-body strong{color:var(--text-dark);font-weight:500}
+.pillar-list{border-top:1px solid rgba(0,0,0,0.08)}
+.pillar-item{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.08);text-decoration:none;transition:all 0.3s}
+.pillar-item:hover .pillar-name{color:var(--rose)}
+.pillar-num{font-family:var(--serif);font-size:12px;color:var(--gold);min-width:28px}
+.pillar-name{font-size:14px;font-weight:400;color:var(--text-dark);flex:1;transition:color 0.3s}
+.pillar-tag{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);padding:3px 10px;border:1px solid rgba(0,0,0,0.1);border-radius:20px}
+
+/* AUDIENCE */
+.audience{background:var(--off-white);padding:140px 60px}
+.audience-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:80px;background:rgba(0,0,0,0.06)}
+.audience-card{background:var(--off-white);padding:40px 32px;position:relative;overflow:hidden;text-decoration:none;display:block;transition:background 0.4s}
+.audience-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--rose);transform:scaleX(0);transform-origin:left;transition:transform 0.4s}
+.audience-card:hover::after{transform:scaleX(1)}
+.audience-card:hover{background:var(--champagne)}
+.aud-num{font-family:var(--serif);font-size:48px;color:rgba(0,0,0,0.05);line-height:1;margin-bottom:20px;font-weight:300}
+.aud-label{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.aud-title{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--text-dark);line-height:1.2;margin-bottom:14px}
+.aud-desc{font-size:13px;font-weight:300;line-height:1.7;color:var(--text-muted);margin-bottom:24px}
+.aud-cta{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose)}
+
+/* KIT */
+.kit-section{padding:140px 60px;display:grid;grid-template-columns:5fr 4fr;gap:100px;align-items:center;background:var(--white)}
+.kit-badge{display:inline-block;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);background:var(--rose);padding:6px 14px;border-radius:2px;margin-bottom:28px}
+.kit-headline{font-family:var(--serif);font-size:clamp(38px,4vw,56px);font-weight:300;line-height:1.05;color:var(--text-dark);margin-bottom:24px}
+.kit-headline em{font-style:italic;color:var(--rose)}
+.kit-desc{font-size:15px;font-weight:300;line-height:1.8;color:var(--text-mid);margin-bottom:32px}
+.kit-features{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(0,0,0,0.08);margin-bottom:40px}
+.kit-feature{padding:11px 0;border-bottom:1px solid rgba(0,0,0,0.07);font-size:13px;color:var(--text-mid);display:flex;align-items:center;gap:10px}
+.kit-feature:nth-child(odd){padding-right:16px}
+.kit-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.kit-pricing{display:flex;align-items:baseline;gap:12px;margin-bottom:32px}
+.kit-price{font-family:var(--serif);font-size:56px;font-weight:300;color:var(--text-dark);line-height:1}
+.kit-price-info{font-size:13px;color:var(--text-muted);line-height:1.6}
+.kit-mock{background:var(--navy);border-radius:4px;padding:48px 40px;position:relative;overflow:hidden}
+.kit-mock::before{content:'';position:absolute;top:-80px;right:-80px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(200,120,138,0.15),transparent 70%)}
+.kit-mock::after{content:'';position:absolute;bottom:-60px;left:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(196,160,106,0.1),transparent 70%)}
+.kit-mock-label{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(196,160,106,0.6);margin-bottom:20px}
+.kit-mock-title{font-family:var(--serif);font-size:28px;font-weight:300;color:var(--white);line-height:1.2;margin-bottom:32px}
+.kit-mock-item{font-size:12px;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.kit-mock-item::before{content:'\2736';font-size:8px;color:rgba(196,160,106,0.6)}
+.kit-score{position:absolute;top:-20px;right:-20px;width:90px;height:90px;background:var(--rose);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.kit-score-num{font-family:var(--serif);font-size:24px;color:var(--white);font-weight:300;line-height:1}
+.kit-score-text{font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-align:center}
+
+/* PROOF */
+.proof{background:var(--champagne);padding:140px 60px}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:80px;background:rgba(0,0,0,0.06)}
+.proof-card{background:var(--champagne);padding:40px 36px;transition:background 0.3s}
+.proof-card:hover{background:var(--white)}
+.proof-quote{font-family:var(--serif);font-size:19px;font-weight:300;font-style:italic;line-height:1.6;color:var(--text-dark);margin-bottom:28px}
+.proof-quote::before{content:'\201C';font-size:52px;color:var(--gold);line-height:0.5;display:block;margin-bottom:14px;opacity:0.4;font-family:var(--serif)}
+.proof-person{display:flex;align-items:center;gap:14px}
+.proof-avatar{width:44px;height:44px;border-radius:50%;background:var(--rose-pale);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:16px;color:var(--rose);font-weight:500;flex-shrink:0}
+.proof-name{font-size:14px;font-weight:500;color:var(--text-dark)}
+.proof-origin{font-size:11px;color:var(--text-muted)}
+.proof-result{margin-top:10px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--rose);padding:3px 10px;border:1px solid rgba(200,120,138,0.3);border-radius:20px;display:inline-block}
+
+/* BRENDA */
+.brenda{padding:140px 60px;display:grid;grid-template-columns:1fr 1fr;gap:120px;align-items:center;background:var(--white)}
+.brenda-visual{position:relative}
+.brenda-img{aspect-ratio:3/4;background:var(--navy-mid);border-radius:2px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.brenda-img-placeholder{font-family:var(--serif);font-size:100px;font-weight:300;color:rgba(255,255,255,0.06);letter-spacing:-0.02em}
+.brenda-img-caption{position:absolute;bottom:28px;left:28px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35)}
+.brenda-ring-1{position:absolute;top:-24px;right:-24px;width:100px;height:100px;border:1px solid rgba(196,160,106,0.3);border-radius:50%;pointer-events:none}
+.brenda-ring-2{position:absolute;bottom:-16px;left:-16px;width:60px;height:60px;border:1px solid rgba(200,120,138,0.25);border-radius:50%;pointer-events:none}
+.brenda-stats{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:48px}
+.brenda-stat-num{font-family:var(--serif);font-size:44px;font-weight:300;color:var(--text-dark);line-height:1;margin-bottom:6px}
+.brenda-stat-num em{font-style:italic;color:var(--rose)}
+.brenda-stat-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);line-height:1.4}
+.brenda-headline{font-family:var(--serif);font-size:clamp(32px,3vw,48px);font-weight:300;line-height:1.1;color:var(--text-dark);margin-bottom:24px}
+.brenda-headline em{font-style:italic;color:var(--rose)}
+.brenda-body{font-size:15px;font-weight:300;line-height:1.8;color:var(--text-mid);margin-bottom:36px}
+
+/* GROW */
+.grow{background:var(--navy);padding:140px 60px;position:relative;overflow:hidden}
+.grow::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(196,160,106,0.05),transparent 60%);pointer-events:none}
+.grow-deco{position:absolute;right:60px;top:50%;transform:translateY(-50%);font-family:var(--serif);font-size:200px;font-weight:300;color:rgba(255,255,255,0.03);line-height:0.9;pointer-events:none;user-select:none}
+.grow-inner{position:relative;z-index:2;max-width:720px}
+.grow-tag{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(196,160,106,0.65);margin-bottom:24px;display:flex;align-items:center;gap:14px}
+.grow-tag::before{content:'\2736';font-size:10px}
+.grow-headline{font-family:var(--serif);font-size:clamp(44px,6vw,76px);font-weight:300;line-height:1.0;color:var(--white);margin-bottom:28px}
+.grow-headline em{font-style:italic;color:var(--gold-light)}
+.grow-body{font-size:16px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.5);max-width:560px;margin-bottom:48px}
+
+/* FINAL CTA */
+.final-cta{padding:160px 60px;text-align:center;background:var(--white);position:relative;overflow:hidden}
+.final-cta::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:80px;background:linear-gradient(to bottom,transparent,rgba(196,160,106,0.4))}
+.final-tag{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+.final-headline{font-family:var(--serif);font-size:clamp(44px,6vw,84px);font-weight:300;line-height:1.0;color:var(--text-dark);margin-bottom:36px}
+.final-headline em{font-style:italic;color:var(--rose)}
+.final-sub{font-size:16px;font-weight:300;color:var(--text-muted);margin-bottom:52px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.7}
+.final-actions{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
+.final-note{font-size:11px;color:var(--text-muted);margin-top:20px}
+.final-note a{color:var(--rose);text-decoration:none}
+
+/* FOOTER */
+footer{background:var(--navy);padding:80px 60px 40px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:36px}
+.footer-logo{font-family:var(--serif);font-size:20px;font-weight:400;color:var(--white);margin-bottom:16px;letter-spacing:0.02em}
+.footer-logo span{color:var(--gold-light)}
+.footer-tagline{font-size:13px;font-weight:300;color:rgba(255,255,255,0.38);line-height:1.7;max-width:240px;margin-bottom:28px}
+.footer-location{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(196,160,106,0.55)}
+.footer-col-title{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-links a{font-size:13px;font-weight:300;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.3s}
+.footer-links a:hover{color:var(--white)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between}
+.footer-copy{font-size:11px;color:rgba(255,255,255,0.22)}
+.lang-switch{display:flex;border:1px solid rgba(255,255,255,0.1);border-radius:3px;overflow:hidden}
+.lang-opt{padding:6px 14px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);cursor:pointer;transition:all 0.2s}
+.lang-opt.active,.lang-opt:hover{background:rgba(255,255,255,0.08);color:var(--white)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:0.1s}
+.reveal-d2{transition-delay:0.2s}
+.reveal-d3{transition-delay:0.3s}
+.reveal-d4{transition-delay:0.4s}
+
+/* KEYFRAMES */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes lineGrow{from{height:0}to{height:180px}}
+@keyframes scrollSlide{0%{left:-100%}50%{left:0}100%{left:100%}}
+
+/* MOBILE */
+@media(max-width:900px){
+nav{padding:20px 24px}
+nav.scrolled{padding:14px 24px}
+.nav-links{display:none}
+.hero-content{padding:0 24px 60px}
+.hero-line,.hero-scroll,.hero-meta{display:none}
+.trust-bar{padding:16px 24px;gap:8px}
+.manifesto{padding:80px 24px;grid-template-columns:1fr;gap:48px}
+.audience{padding:80px 24px}
+.audience-grid{grid-template-columns:1fr 1fr}
+.kit-section{padding:80px 24px;grid-template-columns:1fr;gap:0}
+.kit-mock{display:none}
+.proof{padding:80px 24px}
+.proof-grid{grid-template-columns:1fr}
+.brenda{padding:80px 24px;grid-template-columns:1fr;gap:48px}
+.brenda-visual{max-width:320px}
+.grow{padding:80px 24px}
+.grow-deco{display:none}
+.final-cta{padding:100px 24px}
+footer{padding:60px 24px 32px}
+.footer-top{grid-template-columns:1fr 1fr;gap:40px}
+}
+@media(max-width:600px){
+.audience-grid{grid-template-columns:1fr}
+.kit-features{grid-template-columns:1fr}
+.footer-top{grid-template-columns:1fr}
+.final-actions{flex-direction:column;align-items:center}
+.trust-bar{flex-wrap:wrap;gap:16px}
+.trust-divider{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a href="#" class="nav-logo">Click <span>&amp;</span> Go Global</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Results</a></li>
+    <li><a href="#kit">Brand Audit</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#book" class="nav-cta">Book a call</a>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <video id="heroVideo" class="hero-video" src="/videos/hero-video.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+  <div class="hero-skyline" id="heroSkyline">
+    <svg viewBox="0 0 1200 520" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="b1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a3550" stop-opacity="0.9"/><stop offset="100%" stop-color="#141c2e" stop-opacity="1"/></linearGradient>
+        <linearGradient id="b2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1e2b42" stop-opacity="0.8"/><stop offset="100%" stop-color="#0f1520" stop-opacity="1"/></linearGradient>
+        <linearGradient id="glow" x1="0.5" y1="1" x2="0.5" y2="0"><stop offset="0%" stop-color="#c87858" stop-opacity="0.22"/><stop offset="60%" stop-color="#7b5ea7" stop-opacity="0.06"/><stop offset="100%" stop-color="#0a0f1e" stop-opacity="0"/></linearGradient>
+      </defs>
+      <rect x="0" y="300" width="1200" height="220" fill="url(#glow)"/>
+      <rect x="0" y="440" width="1200" height="80" fill="#1a2840" opacity="0.5"/>
+      <rect x="10" y="390" width="35" height="50" fill="url(#b1)" opacity="0.6"/>
+      <rect x="40" y="370" width="28" height="70" fill="url(#b1)" opacity="0.6"/>
+      <rect x="78" y="365" width="30" height="75" fill="url(#b1)" opacity="0.65"/>
+      <rect x="130" y="335" width="32" height="105" fill="url(#b1)" opacity="0.7"/>
+      <polygon points="146,322 138,335 154,335" fill="#2a3550" opacity="0.7"/>
+      <rect x="195" y="325" width="38" height="115" fill="url(#b1)" opacity="0.75"/>
+      <polygon points="214,310 205,325 223,325" fill="#2a3550" opacity="0.75"/>
+      <rect x="230" y="305" width="14" height="135" fill="url(#b1)" opacity="0.75"/>
+      <rect x="255" y="305" width="14" height="135" fill="url(#b1)" opacity="0.75"/>
+      <rect x="230" y="335" width="39" height="12" fill="url(#b1)" opacity="0.75"/>
+      <rect x="320" y="115" width="8" height="325" fill="url(#b1)" opacity="0.92"/>
+      <rect x="312" y="195" width="24" height="245" fill="url(#b1)" opacity="0.88"/>
+      <rect x="304" y="265" width="40" height="175" fill="url(#b1)" opacity="0.85"/>
+      <rect x="296" y="318" width="56" height="122" fill="url(#b1)" opacity="0.82"/>
+      <rect x="283" y="352" width="82" height="88" fill="url(#b1)" opacity="0.8"/>
+      <line x1="324" y1="85" x2="324" y2="115" stroke="#3a4860" stroke-width="2" opacity="0.8"/>
+      <rect x="318" y="175" width="2" height="2" fill="#E2C99A" opacity="0.5"/>
+      <rect x="322" y="210" width="2" height="2" fill="#E2C99A" opacity="0.4"/>
+      <rect x="370" y="295" width="45" height="145" fill="url(#b1)" opacity="0.8"/>
+      <polygon points="392,280 375,295 409,295" fill="#2a3550" opacity="0.8"/>
+      <rect x="465" y="305" width="42" height="135" fill="url(#b1)" opacity="0.8"/>
+      <polygon points="486,290 470,305 502,305" fill="#2a3550" opacity="0.8"/>
+      <rect x="554" y="265" width="40" height="175" fill="url(#b1)" opacity="0.85"/>
+      <polygon points="574,250 557,265 591,265" fill="#2a3550" opacity="0.85"/>
+      <line x1="574" y1="225" x2="574" y2="250" stroke="#3a4860" stroke-width="1.5" opacity="0.7"/>
+      <rect x="688" y="255" width="44" height="185" fill="url(#b1)" opacity="0.85"/>
+      <rect x="694" y="235" width="32" height="28" fill="url(#b1)" opacity="0.8"/>
+      <rect x="700" y="215" width="20" height="26" fill="url(#b1)" opacity="0.75"/>
+      <rect x="736" y="305" width="36" height="135" fill="url(#b1)" opacity="0.78"/>
+      <rect x="790" y="310" width="42" height="130" fill="url(#b1)" opacity="0.78"/>
+      <rect x="826" y="295" width="34" height="145" fill="url(#b1)" opacity="0.82"/>
+      <polygon points="843,280 828,295 858,295" fill="#2a3550" opacity="0.82"/>
+      <rect x="904" y="310" width="36" height="130" fill="url(#b1)" opacity="0.75"/>
+      <rect x="956" y="305" width="38" height="135" fill="url(#b1)" opacity="0.75"/>
+      <rect x="1030" y="350" width="26" height="90" fill="url(#b2)" opacity="0.55"/>
+      <rect x="1064" y="345" width="28" height="95" fill="url(#b2)" opacity="0.5"/>
+      <rect x="1102" y="355" width="30" height="85" fill="url(#b2)" opacity="0.45"/>
+      <rect x="1144" y="368" width="56" height="72" fill="url(#b2)" opacity="0.38"/>
+      <rect x="0" y="438" width="1200" height="4" fill="#1a2535" opacity="0.8"/>
+      <rect x="324" y="442" width="2" height="28" fill="#E2C99A" opacity="0.07"/>
+      <rect x="574" y="442" width="2" height="22" fill="#c4a06a" opacity="0.06"/>
+      <rect x="372" y="310" width="2" height="2" fill="#E2C99A" opacity="0.5"/>
+      <rect x="558" y="280" width="2" height="2" fill="#E2C99A" opacity="0.5"/>
+      <rect x="694" y="268" width="2" height="2" fill="#E2C99A" opacity="0.5"/>
+      <rect x="830" y="308" width="2" height="2" fill="#E2C99A" opacity="0.45"/>
+      <circle cx="100" cy="55" r="1" fill="#fff" opacity="0.5"/>
+      <circle cx="220" cy="35" r="0.8" fill="#fff" opacity="0.4"/>
+      <circle cx="380" cy="28" r="1" fill="#fff" opacity="0.45"/>
+      <circle cx="650" cy="22" r="1" fill="#fff" opacity="0.5"/>
+      <circle cx="920" cy="32" r="1" fill="#fff" opacity="0.45"/>
+      <circle cx="1060" cy="48" r="0.8" fill="#fff" opacity="0.4"/>
+      <circle cx="160" cy="75" r="0.6" fill="#fff" opacity="0.3"/>
+      <circle cx="450" cy="65" r="0.6" fill="#fff" opacity="0.3"/>
+    </svg>
+  </div>
+  <div class="hero-glow"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-line"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Dubai-based &middot; Global ecosystem</p>
+    <h1 class="hero-headline">Your life<br><em>deserves</em><br>a <span class="outline">global</span> stage.</h1>
+    <p class="hero-subhead">We help founders, personal brands, and ambitious professionals expand their identity, business, and opportunities &mdash; internationally.</p>
+    <div class="hero-actions">
+      <a href="#book" class="btn-primary">Begin your expansion &rarr;</a>
+      <a href="#services" class="btn-ghost">Explore the ecosystem</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span class="scroll-text">Scroll to discover</span></div>
+  <div class="hero-meta"><span>Dubai, UAE</span><span>Est. 2021</span></div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-num">12+</span><span class="trust-label">Countries<br>served</span></div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><span class="trust-num">200+</span><span class="trust-label">Brands<br>elevated</span></div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><span class="trust-num">5</span><span class="trust-label">Service<br>pillars</span></div>
+  <div class="trust-divider"></div>
+  <div class="trust-item"><span class="trust-num">UAE</span><span class="trust-label">Based &middot;<br>Global</span></div>
+</div>
+
+<section class="manifesto" id="services">
+  <div class="reveal">
+    <div class="section-eyebrow">The ecosystem</div>
+    <h2 class="manifesto-headline">Not an agency.<br>A global<br><em>growth</em><br>ecosystem.</h2>
+    <div class="manifesto-deco"></div>
+  </div>
+  <div class="reveal reveal-d1">
+    <p class="manifesto-body">We built Click &amp; Go Global for people who think beyond borders. <strong>Founders who want to be known globally. Personal brands ready for premium positioning. Entrepreneurs moving to Dubai or building across continents.</strong> A full strategic ecosystem &mdash; branding, marketing, automation, consulting, and expansion &mdash; all under one roof.</p>
+    <div class="pillar-list">
+      <a href="#book" class="pillar-item"><span class="pillar-num">01</span><span class="pillar-name">Branding &amp; Personal Brand</span><span class="pillar-tag">Identity</span></a>
+      <a href="#book" class="pillar-item"><span class="pillar-num">02</span><span class="pillar-name">Marketing &amp; Automation</span><span class="pillar-tag">Growth</span></a>
+      <a href="#book" class="pillar-item"><span class="pillar-num">03</span><span class="pillar-name">Business Consulting</span><span class="pillar-tag">Strategy</span></a>
+      <a href="#book" class="pillar-item"><span class="pillar-num">04</span><span class="pillar-name">Dubai &amp; Global Expansion</span><span class="pillar-tag">Relocation</span></a>
+      <a href="#book" class="pillar-item"><span class="pillar-num">&#10022;</span><span class="pillar-name">Grow Partner Network</span><span class="pillar-tag">By invite</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="audience" id="audience">
+  <div class="reveal">
+    <div class="section-eyebrow">Who this is for</div>
+    <h2 class="section-headline">Your expansion starts with<br><em>one decision.</em></h2>
+  </div>
+  <div class="audience-grid">
+    <a href="#book" class="audience-card reveal reveal-d1">
+      <div class="aud-num">01</div><div class="aud-label">For founders</div>
+      <h3 class="aud-title">You&rsquo;re ready to scale beyond your market.</h3>
+      <p class="aud-desc">Strategic brand + business consulting for international visibility and premium clientele.</p>
+      <div class="aud-cta">Start here &rarr;</div>
+    </a>
+    <a href="#book" class="audience-card reveal reveal-d2">
+      <div class="aud-num">02</div><div class="aud-label">Personal brand</div>
+      <h3 class="aud-title">You want to be known &mdash; globally, not just locally.</h3>
+      <p class="aud-desc">Premium positioning, content direction, and digital presence that converts internationally.</p>
+      <div class="aud-cta">Start here &rarr;</div>
+    </a>
+    <a href="#book" class="audience-card reveal reveal-d3">
+      <div class="aud-num">03</div><div class="aud-label">Dubai expander</div>
+      <h3 class="aud-title">You&rsquo;re moving to the UAE &mdash; or building from it.</h3>
+      <p class="aud-desc">Visas, business setup, relocation strategy, and the connections that make Dubai work for you.</p>
+      <div class="aud-cta">Start here &rarr;</div>
+    </a>
+    <a href="#book" class="audience-card reveal reveal-d4">
+      <div class="aud-num">&#10022;</div><div class="aud-label">Grow partner</div>
+      <h3 class="aud-title">You want to grow inside a premium global network.</h3>
+      <p class="aud-desc">Strategic partnerships and collaboration with an invite-only community of global operators.</p>
+      <div class="aud-cta">Apply now &rarr;</div>
+    </a>
+  </div>
+</section>
+
+<section class="kit-section" id="kit">
+  <div class="reveal">
+    <div class="kit-badge">First step &middot; $97</div>
+    <h2 class="kit-headline">Does your brand look<br><em>as premium</em><br>as your ambition?</h2>
+    <p class="kit-desc">Most brands underperform not because of quality &mdash; but because of perception. The Brand Audit Kit gives you the exact diagnosis to fix that, fast.</p>
+    <div class="kit-features">
+      <div class="kit-feature"><span class="kit-dot"></span>Brand positioning diagnosis</div>
+      <div class="kit-feature"><span class="kit-dot"></span>Luxury perception score</div>
+      <div class="kit-feature"><span class="kit-dot"></span>Visual identity audit</div>
+      <div class="kit-feature"><span class="kit-dot"></span>Aesthetic consistency check</div>
+      <div class="kit-feature"><span class="kit-dot"></span>Instagram &amp; profile review</div>
+      <div class="kit-feature"><span class="kit-dot"></span>Conversion &amp; trust analysis</div>
+      <div class="kit-feature"><span class="kit-dot"></span>Content direction analysis</div>
+      <div class="kit-feature"><span class="kit-dot"></span>Premium recommendations</div>
+      <div class="kit-feature"><span class="kit-dot"></span>Audience perception audit</div>
+      <div class="kit-feature"><span class="kit-dot"></span>30-day action plan</div>
+    </div>
+    <div class="kit-pricing">
+      <div class="kit-price">$97</div>
+      <div class="kit-price-info"><s>$397 value</s><br>Instant PDF delivery<br>+ implementation guide</div>
+    </div>
+    <a href="#book" class="btn-primary">Get the Brand Audit Kit &rarr;</a>
+  </div>
+  <div class="reveal reveal-d2" style="position:relative">
+    <div class="kit-score"><div class="kit-score-num">9.2</div><div class="kit-score-text">luxury<br>score</div></div>
+    <div class="kit-mock">
+      <div class="kit-mock-label">Click &amp; Go Global &middot; Brand Audit Kit</div>
+      <div class="kit-mock-title">Your complete brand<br>perception analysis</div>
+      <div class="kit-mock-item">Brand positioning diagnosis</div>
+      <div class="kit-mock-item">Visual identity &amp; aesthetic audit</div>
+      <div class="kit-mock-item">Luxury perception score (out of 10)</div>
+      <div class="kit-mock-item">Instagram &amp; digital profile review</div>
+      <div class="kit-mock-item">Content direction analysis</div>
+      <div class="kit-mock-item">Conversion &amp; trust signal audit</div>
+      <div class="kit-mock-item">Premium positioning roadmap</div>
+      <div class="kit-mock-item">30-day implementation plan</div>
+    </div>
+  </div>
+</section>
+
+<section class="proof" id="work">
+  <div class="reveal">
+    <div class="section-eyebrow">Client results</div>
+    <h2 class="section-headline">Real expansion.<br><em>Real results.</em></h2>
+  </div>
+  <div class="proof-grid">
+    <div class="proof-card reveal reveal-d1">
+      <p class="proof-quote">We went from invisible to booked out in 8 weeks. The brand positioning changed everything &mdash; including our pricing.</p>
+      <div class="proof-person"><div class="proof-avatar">MS</div><div><div class="proof-name">Mar&iacute;a S.</div><div class="proof-origin">Founder &middot; Mexico City &#127474;&#127485;</div></div></div>
+      <div class="proof-result">Brand launch &rarr; fully booked</div>
+    </div>
+    <div class="proof-card reveal reveal-d2">
+      <p class="proof-quote">I thought Dubai was complicated. Click &amp; Go made it feel like the most natural next step. Company registered in 3 weeks.</p>
+      <div class="proof-person"><div class="proof-avatar">AR</div><div><div class="proof-name">Alejandro R.</div><div class="proof-origin">Entrepreneur &middot; Now in Dubai &#127462;&#127466;</div></div></div>
+      <div class="proof-result">Relocated + business launched</div>
+    </div>
+    <div class="proof-card reveal reveal-d3">
+      <p class="proof-quote">My personal brand finally matches what I deliver. The audit kit gave me clarity I had been searching for for two years.</p>
+      <div class="proof-person"><div class="proof-avatar">VL</div><div><div class="proof-name">Valentina L.</div><div class="proof-origin">Consultant &middot; Miami &#127482;&#127480;</div></div></div>
+      <div class="proof-result">Personal brand repositioned</div>
+    </div>
+  </div>
+</section>
+
+<section class="brenda" id="about">
+  <div class="brenda-visual reveal">
+    <div class="brenda-img">
+      <div class="brenda-img-placeholder">B.</div>
+      <div class="brenda-img-caption">Brenda Mart&iacute;nez &middot; Dubai, UAE</div>
+    </div>
+    <div class="brenda-ring-1"></div>
+    <div class="brenda-ring-2"></div>
+  </div>
+  <div class="reveal reveal-d1">
+    <div class="section-eyebrow">The founder</div>
+    <div class="brenda-stats">
+      <div><div class="brenda-stat-num">Mexico <em>&rarr;</em></div><div class="brenda-stat-label">Dubai</div></div>
+      <div><div class="brenda-stat-num">&minus;40<em>kg</em></div><div class="brenda-stat-label">Physical &amp;<br>identity transformation</div></div>
+    </div>
+    <h2 class="brenda-headline">Built by someone<br>who actually<br><em>made the leap.</em></h2>
+    <p class="brenda-body">Brenda is a Mexican lawyer-turned-strategist who moved to Dubai and built Click &amp; Go Global from the ground up. Not theory. Real strategy from someone who navigated the visas, the rebranding, the relocation, and the global expansion &mdash; personally.</p>
+    <a href="#book" class="btn-outline">Book a call with Brenda &rarr;</a>
+  </div>
+</section>
+
+<section class="grow">
+  <div class="grow-deco">Grow</div>
+  <div class="grow-inner reveal">
+    <div class="grow-tag">By invitation &middot; Strategic network</div>
+    <h2 class="grow-headline">The network<br><em>moves</em><br>with you.</h2>
+    <p class="grow-body">The Grow Partner Network is an invite-only ecosystem of global operators, consultants, and brand strategists. Strategic referrals, co-projects, and access to clients across three continents. Not a community. A curated partnership structure.</p>
+    <a href="#book" class="btn-gold">Apply for partnership &rarr;</a>
+  </div>
+</section>
+
+<section class="final-cta" id="book">
+  <div class="reveal">
+    <div class="final-tag">Ready when you are</div>
+    <h2 class="final-headline">Your expansion<br>starts with one<br><em>clear decision.</em></h2>
+    <p class="final-sub">Book a 20-minute strategy call. We&rsquo;ll map out exactly where you are, where you want to go, and what moves first.</p>
+    <div class="final-actions">
+      <a href="mailto:hola@clickngoglobal.com" class="btn-primary">Book your strategy call &rarr;</a>
+      <a href="#kit" class="btn-outline">Get the Brand Audit Kit &mdash; $97</a>
+    </div>
+    <p class="final-note">Questions? Write to <a href="mailto:hola@clickngoglobal.com">hola@clickngoglobal.com</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Click <span>&amp;</span> Go Global</div>
+      <div class="footer-tagline">A premium global consulting ecosystem. Dubai-based. Globally positioned.</div>
+      <div class="footer-location">Dubai, United Arab Emirates &middot; Est. 2021</div>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Branding</a></li>
+        <li><a href="#services">Marketing</a></li>
+        <li><a href="#services">Consulting</a></li>
+        <li><a href="#services">Dubai Expansion</a></li>
+        <li><a href="#services">Grow Partner</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <ul class="footer-links">
+        <li><a href="#kit">Brand Audit Kit</a></li>
+        <li><a href="#book">Dubai Guide</a></li>
+        <li><a href="#work">Results</a></li>
+        <li><a href="#about">About Brenda</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#book">Book a Call</a></li>
+        <li><a href="#book">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2025 Click &amp; Go Global. All rights reserved.</div>
+    <div class="lang-switch">
+      <span class="lang-opt active">EN</span>
+      <span class="lang-opt">ES</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60)});
+var vid=document.getElementById('heroVideo');
+var sky=document.getElementById('heroSkyline');
+if(vid){
+  function onReady(){vid.classList.add('loaded');if(sky)sky.style.opacity='0'}
+  vid.addEventListener('canplaythrough',onReady);
+  vid.addEventListener('loadeddata',onReady);
+  vid.addEventListener('error',function(){vid.style.display='none'});
+  vid.play().catch(function(){});
+  document.addEventListener('touchstart',function(){if(vid.paused)vid.play().catch(function(){})},{once:true});
+}
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+</script>
+</body>
+</html>
