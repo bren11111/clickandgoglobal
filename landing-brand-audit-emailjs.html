@@ -269,15 +269,18 @@ async function handleSubmit(e) {
   btn.textContent = 'Sending...';
 
   try {
-    await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+    const response = await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+      to_name: name,
+      to_email: email,
       name: name,
-email: email,
-to_name: name,
-to_email: email,
-company: company || 'Not provided',
-download_link: EBOOK_LINK,
-from_name: 'Click and Go Global'
+      email: email,
+      company: company || 'Not provided',
+      download_link: EBOOK_LINK,
+      from_name: 'Click and Go Global',
+      message: 'Free Brand Audit requested'
     }, {publicKey: '-0aED0Sl2yWG7_ukq'});
+
+    console.log('EmailJS success:', response);
 
     // Save lead to localStorage
     const leads = JSON.parse(localStorage.getItem('cgg_leads') || '[]');
@@ -297,6 +300,8 @@ from_name: 'Click and Go Global'
 
   } catch(err) {
     console.error('EmailJS error:', err);
+    const errorDetail = err?.text || err?.message || JSON.stringify(err);
+    errEl.textContent = 'Error: ' + errorDetail;
     errEl.style.display = 'block';
     btn.disabled = false;
     btn.textContent = 'Get My Free Brand Audit →';
