@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melany Villalobos — Your Guide to UAE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F8F3EE;
+    --cream-dark: #F0E8DF;
+    --wine: #8B2635;
+    --wine-light: #C4626E;
+    --rose: #E8A8A8;
+    --rose-soft: #F5DDD8;
+    --beige-card: #FDF8F4;
+    --text-dark: #2A1A1A;
+    --text-mid: #5A3E3E;
+    --text-light: #9A7070;
+    --gold: #C9956A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 70px;
+    background: rgba(248,243,238,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid rgba(139,38,53,0.12);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 30px rgba(139,38,53,0.08); }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-dark);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--wine); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
+    background: var(--wine);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--wine); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    background: var(--wine);
+    color: #fff !important;
+    padding: 10px 24px;
+    border-radius: 2px;
+    letter-spacing: 0.1em;
+    font-size: 12px !important;
+    transition: background 0.3s !important;
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover { background: #6D1A27 !important; color: #fff !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 1px; background: var(--text-dark); transition: 0.3s; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 6% 80px 8%;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--wine);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 36px; height: 1px;
+    background: var(--wine);
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 5vw, 76px);
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--wine);
+  }
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.2vw, 28px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-mid);
+    margin-bottom: 36px;
+    line-height: 1.4;
+  }
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-mid);
+    max-width: 420px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+  .hero-desc strong { color: var(--text-dark); font-weight: 500; }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--wine);
+    color: #fff;
+    padding: 16px 36px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.3s;
+    width: fit-content;
+  }
+  .btn-primary:hover { background: #6D1A27; transform: translateY(-2px); }
+  .btn-primary svg { transition: transform 0.3s; }
+  .btn-primary:hover svg { transform: translateX(4px); }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--wine);
+    color: var(--wine);
+    padding: 15px 32px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.3s;
+    width: fit-content;
+  }
+  .btn-outline:hover { background: var(--rose-soft); transform: translateY(-2px); }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 0.5px solid rgba(139,38,53,0.15);
+  }
+  .stat-item { display: flex; flex-direction: column; gap: 4px; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--wine);
+    line-height: 1;
+  }
+  .stat-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-img-wrap {
+    width: 100%; height: 100%;
+    position: relative;
+  }
+  .hero-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .hero-img-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, var(--cream) 0%, transparent 30%);
+  }
+  .hero-quote {
+    position: absolute;
+    bottom: 60px;
+    right: 40px;
+    background: rgba(248,243,238,0.92);
+    backdrop-filter: blur(10px);
+    border: 0.5px solid rgba(139,38,53,0.2);
+    border-radius: 4px;
+    padding: 20px 24px;
+    max-width: 220px;
+    animation: floatCard 4s ease-in-out infinite;
+  }
+  @keyframes floatCard {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .hero-quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--text-dark);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .hero-quote-sig {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--wine);
+  }
+  .heart-deco {
+    color: var(--wine);
+    font-size: 14px;
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  /* SECTION BASE */
+  section { padding: 100px 8%; }
+  .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--wine);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-eyebrow::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--wine);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 3.5vw, 54px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+  }
+  .section-title em { font-style: italic; color: var(--wine); }
+  .section-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-mid);
+    font-weight: 300;
+    max-width: 560px;
+  }
+  .text-center { text-align: center; }
+  .text-center .section-eyebrow { justify-content: center; }
+  .text-center .section-eyebrow::before { display: none; }
+  .text-center .section-desc { margin: 0 auto; }
+
+  /* ABOUT */
+  #about {
+    background: var(--beige-card);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .about-img-wrap {
+    position: relative;
+    height: 580px;
+  }
+  .about-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  .about-badge {
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 110px; height: 110px;
+    border-radius: 50%;
+    background: var(--wine);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    animation: spin 20s linear infinite;
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .about-badge-inner {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 1.5;
+    animation: spinReverse 20s linear infinite;
+  }
+  @keyframes spinReverse {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+  }
+  .about-content { padding: 20px 0; }
+  .about-list { list-style: none; margin: 32px 0; display: flex; flex-direction: column; gap: 16px; }
+  .about-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .about-list li::before {
+    content: '♥';
+    color: var(--wine);
+    font-size: 10px;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+
+  /* SERVICES */
+  #services { background: var(--cream); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 64px;
+  }
+  .service-card {
+    background: var(--beige-card);
+    border: 0.5px solid rgba(139,38,53,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
+    position: relative;
+  }
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(139,38,53,0.12);
+  }
+  .service-card-img {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+  }
+  .service-card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+  }
+  .service-card:hover .service-card-img img { transform: scale(1.06); }
+  .service-icon-wrap {
+    position: absolute;
+    bottom: -22px; left: 24px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--beige-card);
+    border: 1.5px solid rgba(139,38,53,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  .service-icon-wrap svg { width: 20px; height: 20px; stroke: var(--wine); }
+  .service-card-body { padding: 36px 24px 28px; }
+  .service-tag {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--wine);
+    margin-bottom: 8px;
+  }
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .service-name-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--wine);
+    margin-bottom: 14px;
+  }
+  .service-desc {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .service-cta {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--wine);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: gap 0.3s;
+  }
+  .service-card:hover .service-cta { gap: 14px; }
+  .service-cta-line { width: 24px; height: 1px; background: var(--wine); }
+
+  /* SERVICE MODAL */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(42,26,26,0.7);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .modal-overlay.active { opacity: 1; pointer-events: all; }
+  .modal {
+    background: var(--cream);
+    border-radius: 6px;
+    max-width: 760px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    transform: translateY(30px) scale(0.97);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    position: relative;
+  }
+  .modal-overlay.active .modal { transform: translateY(0) scale(1); }
+  .modal-img { height: 240px; overflow: hidden; }
+  .modal-img img { width: 100%; height: 100%; object-fit: cover; }
+  .modal-body { padding: 40px 48px 48px; }
+  .modal-close {
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(248,243,238,0.9);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--text-dark);
+    transition: background 0.2s;
+    z-index: 10;
+  }
+  .modal-close:hover { background: var(--rose-soft); }
+  .modal-tag { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--wine); margin-bottom: 10px; }
+  .modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 300;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+    line-height: 1.1;
+  }
+  .modal-title-em {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    color: var(--wine);
+    margin-bottom: 20px;
+  }
+  .modal-desc { font-size: 15px; color: var(--text-mid); line-height: 1.8; font-weight: 300; margin-bottom: 32px; }
+  .modal-includes { margin-bottom: 32px; }
+  .modal-includes h4 {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--wine);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .modal-includes h4::after { content: ''; flex: 1; height: 0.5px; background: rgba(139,38,53,0.2); }
+  .modal-includes ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .modal-includes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-mid);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .modal-includes li::before { content: '✓'; color: var(--wine); font-size: 12px; margin-top: 2px; flex-shrink: 0; }
+  .modal-footer { padding-top: 24px; border-top: 0.5px solid rgba(139,38,53,0.15); }
+
+  /* PROCESS */
+  #process { background: var(--wine); color: #fff; }
+  #process .section-eyebrow { color: var(--rose); }
+  #process .section-eyebrow::before { background: var(--rose); }
+  #process .section-title { color: #fff; }
+  #process .section-title em { color: var(--rose); }
+  #process .section-desc { color: rgba(255,255,255,0.65); }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 64px;
+    position: relative;
+  }
+  .process-grid::before {
+    content: '';
+    position: absolute;
+    top: 28px; left: 12.5%; right: 12.5%;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+  }
+  .process-step { padding: 0 20px; text-align: center; }
+  .process-num {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: #fff;
+    background: var(--wine);
+    position: relative;
+    z-index: 1;
+    transition: background 0.3s;
+  }
+  .process-step:hover .process-num { background: rgba(255,255,255,0.15); }
+  .process-step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .process-step-desc { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; font-weight: 300; }
+
+  /* TESTIMONIALS */
+  #testimonials { background: var(--beige-card); overflow: hidden; }
+  .testimonials-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .testimonials-track-wrap { overflow: hidden; }
+  .testimonials-track {
+    display: flex;
+    gap: 24px;
+    transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+  }
+  .testimonial-card {
+    flex-shrink: 0;
+    width: calc(33.33% - 16px);
+    background: var(--cream);
+    border: 0.5px solid rgba(139,38,53,0.1);
+    border-radius: 4px;
+    padding: 36px;
+    position: relative;
+  }
+  .testimonial-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    color: var(--rose);
+    line-height: 0.8;
+    margin-bottom: 16px;
+  }
+  .testimonial-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-mid);
+    font-weight: 300;
+    margin-bottom: 28px;
+    font-style: italic;
+  }
+  .testimonial-author { display: flex; align-items: center; gap: 14px; }
+  .testimonial-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--rose-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--wine);
+  }
+  .testimonial-name { font-size: 14px; font-weight: 500; color: var(--text-dark); }
+  .testimonial-role { font-size: 11px; color: var(--text-light); font-weight: 300; }
+  .testimonial-stars { color: var(--gold); font-size: 12px; margin-bottom: 4px; }
+  .slider-controls { display: flex; gap: 8px; }
+  .slider-btn {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 0.5px solid rgba(139,38,53,0.2);
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--wine);
+    transition: all 0.3s;
+    font-size: 18px;
+  }
+  .slider-btn:hover { background: var(--wine); color: #fff; border-color: var(--wine); }
+
+  /* TRUST BAR */
+  #trust {
+    background: var(--cream-dark);
+    padding: 40px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+  .trust-icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(139,38,53,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .trust-icon svg { width: 18px; height: 18px; stroke: var(--wine); }
+  .trust-text { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-mid); }
+
+  /* CONTACT */
+  #contact {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-info { padding: 20px 0; }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 24px;
+    background: var(--beige-card);
+    border: 0.5px solid rgba(139,38,53,0.1);
+    border-radius: 4px;
+    margin-bottom: 14px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .contact-item:hover { transform: translateX(6px); box-shadow: 0 4px 20px rgba(139,38,53,0.08); }
+  .contact-icon {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--rose-soft);
+    border: 1px solid rgba(139,38,53,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-icon svg { width: 18px; height: 18px; stroke: var(--wine); }
+  .contact-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); margin-bottom: 3px; }
+  .contact-val { font-size: 15px; font-weight: 400; color: var(--text-dark); }
+  .contact-big-quote {
+    margin-top: 40px;
+    padding: 32px;
+    background: var(--wine);
+    border-radius: 4px;
+    color: #fff;
+  }
+  .contact-big-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+  .contact-big-quote span { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rose); }
+  .contact-form { display: flex; flex-direction: column; gap: 16px; padding-top: 20px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-label { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-mid); }
+  .form-input, .form-select, .form-textarea {
+    padding: 14px 16px;
+    background: var(--beige-card);
+    border: 0.5px solid rgba(139,38,53,0.15);
+    border-radius: 2px;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--wine); }
+  .form-textarea { resize: vertical; min-height: 120px; }
+  .form-success {
+    display: none;
+    padding: 16px;
+    background: var(--rose-soft);
+    border: 0.5px solid rgba(139,38,53,0.2);
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--wine);
+    text-align: center;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--text-dark);
+    color: rgba(255,255,255,0.5);
+    padding: 60px 8% 40px;
+  }
+  .footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    border-bottom: 0.5px solid rgba(255,255,255,0.1);
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: #fff;
+  }
+  .footer-logo span { color: var(--rose); font-style: italic; }
+  .footer-nav { display: flex; gap: 32px; flex-wrap: wrap; }
+  .footer-nav a {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-nav a:hover { color: #fff; }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-copy { font-size: 12px; }
+  .footer-love { font-size: 12px; }
+  .footer-love span { color: var(--rose); }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { height: 50vw; }
+    .hero-img-overlay { background: linear-gradient(to bottom, var(--cream) 0%, transparent 30%); }
+    #about, #contact { grid-template-columns: 1fr; gap: 40px; }
+    .about-img-wrap { height: 340px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .process-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .process-grid::before { display: none; }
+    .testimonial-card { width: calc(85vw - 32px); }
+    .nav-links { display: none; position: absolute; top: 70px; left: 0; right: 0; background: var(--cream); padding: 20px; flex-direction: column; gap: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .nav-links.open { display: flex; }
+    .hamburger { display: flex; }
+    section { padding: 70px 5%; }
+    #trust { gap: 30px; }
+  }
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-stats { gap: 24px; }
+    .stat-num { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">Melany <span>Villalobos</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow reveal">Dubai, United Arab Emirates</div>
+    <h1 class="hero-title reveal reveal-delay-1">
+      Your <em>guide</em><br>to life in<br><em>UAE</em>
+    </h1>
+    <p class="hero-sub reveal reveal-delay-2">Strategic solutions for your journey.</p>
+    <p class="hero-desc reveal reveal-delay-3">
+      I help you <strong>migrate, build your business, and thrive</strong> in the United Arab Emirates — with clarity, strategy, and personalized support every step of the way.
+    </p>
+    <div class="hero-btns reveal reveal-delay-4">
+      <a href="#contact" class="btn-primary">
+        Let's Talk
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+    <div class="hero-stats reveal reveal-delay-5">
+      <div class="stat-item">
+        <span class="stat-num">200+</span>
+        <span class="stat-label">Clients Guided</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">6</span>
+        <span class="stat-label">Key Services</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">5★</span>
+        <span class="stat-label">Satisfaction</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img src="https://picsum.photos/seed/dubaiskyline/900/700" alt="Dubai skyline at golden hour" onerror="this.onerror=null;this.src='https://picsum.photos/900/700?grayscale'">
+      <div class="hero-img-overlay"></div>
+    </div>
+    <div class="hero-quote">
+      <p class="hero-quote-text">"Your peace of mind is my priority."</p>
+      <span class="heart-deco">♥</span>
+      <span class="hero-quote-sig">Melany Villalobos</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div id="trust">
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+    </div>
+    <span class="trust-text">100% Safe Process</span>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+    </div>
+    <span class="trust-text">Full Confidentiality</span>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+    </div>
+    <span class="trust-text">Personalized Support</span>
+  </div>
+  <div class="trust-icon" style="display:flex;align-items:center;gap:14px;" class="trust-item">
+    <div class="trust-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+    </div>
+    <span class="trust-text">Experience & Strategy</span>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+    </div>
+    <span class="trust-text">Your New Life Awaits</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img-wrap reveal">
+    <img src="https://picsum.photos/seed/professional1/700/580" alt="Melany Villalobos" onerror="this.onerror=null;this.src='https://picsum.photos/700/580?grayscale'">
+    <div class="about-badge">
+      <div class="about-badge-inner">Based in · Dubai · UAE ·</div>
+    </div>
+  </div>
+  <div class="about-content">
+    <div class="section-eyebrow reveal">About Me</div>
+    <h2 class="section-title reveal reveal-delay-1">Hi, I'm <em>Melany</em></h2>
+    <p class="section-desc reveal reveal-delay-2">
+      I'm a strategic advisor based in Dubai helping individuals and businesses navigate life in the UAE — from relocating and launching a company to building powerful connections and mastering English.
+    </p>
+    <ul class="about-list reveal reveal-delay-3">
+      <li>Step-by-step migration guidance for UAE with clarity and strategy</li>
+      <li>Business setup in Freezone, Mainland & international markets</li>
+      <li>International logistics, legal advisory & immigration paperwork</li>
+      <li>Exclusive networking connections and business opportunities in UAE</li>
+      <li>English coaching for real-life and professional settings</li>
+    </ul>
+    <div class="reveal reveal-delay-4">
+      <a href="#contact" class="btn-primary">
+        Start Your Journey
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SKYLINE DIVIDER — Dubai line art -->
+<div style="background:var(--beige-card);line-height:0;overflow:hidden;padding:40px 0 0;">
+<svg viewBox="0 0 1200 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;" aria-hidden="true">
+  <line x1="0" y1="88" x2="1200" y2="88" stroke="#8B2635" stroke-width="0.8" opacity="0.4"/>
+  <!-- Left cluster -->
+  <rect x="10" y="62" width="14" height="26" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+  <rect x="28" y="50" width="18" height="38" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+  <rect x="50" y="40" width="16" height="48" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+  <line x1="58" y1="40" x2="58" y2="28" stroke="#8B2635" stroke-width="0.7" opacity="0.42"/>
+  <rect x="70" y="56" width="12" height="32" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+  <rect x="86" y="46" width="20" height="42" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+  <path d="M86,46 Q96,32 106,46" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.46"/>
+  <!-- Palm tree left -->
+  <line x1="124" y1="88" x2="124" y2="66" stroke="#8B2635" stroke-width="1" opacity="0.48"/>
+  <path d="M124,66 Q117,58 111,62" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.44"/>
+  <path d="M124,66 Q131,58 137,62" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.44"/>
+  <path d="M124,66 Q124,57 124,60" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.44"/>
+  <!-- Mid buildings -->
+  <rect x="148" y="52" width="16" height="36" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+  <rect x="168" y="42" width="20" height="46" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+  <line x1="178" y1="42" x2="178" y2="28" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+  <rect x="192" y="48" width="14" height="40" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+  <rect x="210" y="36" width="18" height="52" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+  <line x1="219" y1="36" x2="219" y2="20" stroke="#8B2635" stroke-width="0.7" opacity="0.42"/>
+  <rect x="232" y="54" width="14" height="34" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+  <!-- Stepped tower -->
+  <rect x="250" y="44" width="14" height="44" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+  <rect x="247" y="36" width="20" height="9" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+  <rect x="244" y="28" width="26" height="9" fill="none" stroke="#8B2635" stroke-width="0.6" opacity="0.36"/>
+  <line x1="257" y1="28" x2="257" y2="14" stroke="#8B2635" stroke-width="0.7" opacity="0.42"/>
+  <!-- BURJ KHALIFA main -->
+  <line x1="360" y1="88" x2="360" y2="2" stroke="#8B2635" stroke-width="1.3" opacity="0.6"/>
+  <line x1="357" y1="88" x2="357" y2="12" stroke="#8B2635" stroke-width="0.8" opacity="0.45"/>
+  <line x1="363" y1="88" x2="363" y2="12" stroke="#8B2635" stroke-width="0.8" opacity="0.45"/>
+  <rect x="354" y="26" width="12" height="62" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.5"/>
+  <rect x="350" y="40" width="20" height="48" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.44"/>
+  <rect x="346" y="52" width="28" height="36" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+  <rect x="340" y="62" width="40" height="26" fill="none" stroke="#8B2635" stroke-width="0.6" opacity="0.36"/>
+  <!-- Flanking towers -->
+  <rect x="298" y="46" width="16" height="42" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+  <line x1="306" y1="46" x2="306" y2="32" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+  <rect x="318" y="54" width="14" height="34" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+  <rect x="386" y="44" width="16" height="44" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+  <line x1="394" y1="44" x2="394" y2="30" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+  <rect x="406" y="52" width="14" height="36" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+  <rect x="424" y="46" width="16" height="42" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+  <!-- Twin towers -->
+  <rect x="446" y="38" width="13" height="50" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.46"/>
+  <path d="M446,38 Q452,26 459,38" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.46"/>
+  <rect x="464" y="38" width="13" height="50" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.46"/>
+  <path d="M464,38 Q470,26 477,38" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.46"/>
+  <!-- Palm tree mid -->
+  <line x1="496" y1="88" x2="496" y2="66" stroke="#8B2635" stroke-width="1" opacity="0.48"/>
+  <path d="M496,66 Q489,58 483,62" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.44"/>
+  <path d="M496,66 Q503,58 509,62" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.44"/>
+  <path d="M496,66 Q496,57 496,60" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.44"/>
+  <!-- BURJ AL ARAB sail shape -->
+  <path d="M540,88 L540,28 L588,88 Z" fill="none" stroke="#8B2635" stroke-width="1.1" opacity="0.55"/>
+  <line x1="540" y1="28" x2="540" y2="14" stroke="#8B2635" stroke-width="0.9" opacity="0.5"/>
+  <ellipse cx="540" cy="15" rx="9" ry="3" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.42"/>
+  <path d="M541,46 Q558,56 584,82" fill="none" stroke="#8B2635" stroke-width="0.5" opacity="0.28"/>
+  <path d="M541,62 Q556,68 580,84" fill="none" stroke="#8B2635" stroke-width="0.5" opacity="0.24"/>
+  <path d="M541,76 Q550,79 566,86" fill="none" stroke="#8B2635" stroke-width="0.5" opacity="0.2"/>
+  <!-- Right cluster -->
+  <rect x="606" y="52" width="16" height="36" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+  <rect x="626" y="40" width="20" height="48" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+  <line x1="636" y1="40" x2="636" y2="26" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+  <rect x="650" y="50" width="14" height="38" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+  <!-- Mosque dome -->
+  <rect x="670" y="60" width="28" height="28" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+  <path d="M670,60 Q684,44 698,60" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.46"/>
+  <line x1="684" y1="44" x2="684" y2="32" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+  <line x1="684" y1="32" x2="688" y2="24" stroke="#8B2635" stroke-width="0.6" opacity="0.36"/>
+  <!-- Globe/Ferris wheel -->
+  <circle cx="730" cy="72" r="14" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.38"/>
+  <line x1="730" y1="58" x2="730" y2="86" stroke="#8B2635" stroke-width="0.5" opacity="0.26"/>
+  <line x1="716" y1="72" x2="744" y2="72" stroke="#8B2635" stroke-width="0.5" opacity="0.26"/>
+  <line x1="720" y1="62" x2="740" y2="82" stroke="#8B2635" stroke-width="0.4" opacity="0.22"/>
+  <line x1="740" y1="62" x2="720" y2="82" stroke="#8B2635" stroke-width="0.4" opacity="0.22"/>
+  <line x1="730" y1="86" x2="730" y2="88" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+  <!-- Palm trees right -->
+  <line x1="756" y1="88" x2="756" y2="66" stroke="#8B2635" stroke-width="1" opacity="0.48"/>
+  <path d="M756,66 Q749,58 743,62" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.44"/>
+  <path d="M756,66 Q763,58 769,62" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.44"/>
+  <path d="M756,66 Q756,57 756,60" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.44"/>
+  <rect x="780" y="50" width="16" height="38" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+  <rect x="800" y="40" width="20" height="48" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+  <line x1="810" y1="40" x2="810" y2="26" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+  <rect x="824" y="54" width="14" height="34" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+  <rect x="842" y="46" width="16" height="42" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+  <rect x="862" y="56" width="12" height="32" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.36"/>
+  <rect x="878" y="44" width="18" height="44" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+  <line x1="887" y1="44" x2="887" y2="30" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+  <rect x="900" y="54" width="14" height="34" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+  <rect x="918" y="46" width="16" height="42" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.4"/>
+  <rect x="938" y="58" width="12" height="30" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.36"/>
+  <rect x="954" y="42" width="18" height="46" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+  <rect x="976" y="52" width="14" height="36" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+  <rect x="994" y="48" width="16" height="40" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+  <rect x="1014" y="60" width="12" height="28" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.34"/>
+  <rect x="1030" y="44" width="18" height="44" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.4"/>
+  <rect x="1052" y="56" width="12" height="32" fill="none" stroke="#8B2635" stroke-width="0.6" opacity="0.36"/>
+  <rect x="1068" y="48" width="16" height="40" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+  <rect x="1088" y="62" width="14" height="26" fill="none" stroke="#8B2635" stroke-width="0.6" opacity="0.34"/>
+  <rect x="1106" y="50" width="16" height="38" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+  <rect x="1126" y="58" width="12" height="30" fill="none" stroke="#8B2635" stroke-width="0.6" opacity="0.34"/>
+  <rect x="1142" y="46" width="18" height="42" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+  <rect x="1164" y="60" width="36" height="28" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.36"/>
+</svg>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="text-center">
+    <div class="section-eyebrow reveal">What I Offer</div>
+    <h2 class="section-title reveal reveal-delay-1">My <em>Services</em></h2>
+    <p class="section-desc reveal reveal-delay-2">Strategic solutions to accompany you at every step of your journey in UAE</p>
+  </div>
+  <div class="services-grid" id="servicesGrid">
+    <!-- Cards rendered by JS -->
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div style="max-width:600px;">
+    <div class="section-eyebrow reveal">How It Works</div>
+    <h2 class="section-title reveal reveal-delay-1">Simple, clear<br><em>process</em></h2>
+    <p class="section-desc reveal reveal-delay-2">From the first conversation to your new life in UAE — I'm with you at every stage.</p>
+  </div>
+  <div class="process-grid">
+    <div class="process-step reveal reveal-delay-1">
+      <div class="process-num">01</div>
+      <div class="process-step-title">Initial Consultation</div>
+      <p class="process-step-desc">We evaluate your profile, objectives, and needs to design the perfect plan for you.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="process-num">02</div>
+      <div class="process-step-title">Custom Strategy</div>
+      <p class="process-step-desc">I present the best options for your specific situation — visa paths, business structures, or logistics.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="process-num">03</div>
+      <div class="process-step-title">Guided Execution</div>
+      <p class="process-step-desc">Step by step we implement your plan: documents, registrations, connections, and preparation.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-4">
+      <div class="process-num">04</div>
+      <div class="process-step-title">Your New Life</div>
+      <p class="process-step-desc">You arrive informed, prepared, and confident — with a support network already in place.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKYLINE BANNER — Dubai panorama with Burj Al Arab line art -->
+<div style="background:var(--cream-dark);padding:64px 8%;overflow:hidden;">
+  <div style="display:flex;flex-direction:column;align-items:center;gap:20px;">
+    <p class="reveal" style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.5vw,30px);font-style:italic;color:var(--text-dark);text-align:center;line-height:1.4;">"Tu red es tu mayor activo.<br><em style="color:var(--wine);">Conectemos tu futuro en UAE.</em>"</p>
+    <span style="color:var(--wine);font-size:16px;">♥</span>
+    <svg viewBox="0 0 1100 155" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:940px;display:block;" class="reveal reveal-delay-1" aria-hidden="true">
+      <!-- ground -->
+      <line x1="0" y1="140" x2="1100" y2="140" stroke="#8B2635" stroke-width="0.9" opacity="0.45"/>
+      <!-- far left buildings -->
+      <rect x="8" y="104" width="14" height="36" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+      <rect x="26" y="90" width="18" height="50" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+      <rect x="48" y="76" width="22" height="64" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.46"/>
+      <line x1="59" y1="76" x2="59" y2="60" stroke="#8B2635" stroke-width="0.7" opacity="0.42"/>
+      <rect x="74" y="86" width="16" height="54" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+      <rect x="94" y="70" width="24" height="70" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.46"/>
+      <path d="M94,70 Q106,52 118,70" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.48"/>
+      <rect x="122" y="84" width="15" height="56" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+      <!-- palm left -->
+      <line x1="146" y1="140" x2="146" y2="112" stroke="#8B2635" stroke-width="1.1" opacity="0.52"/>
+      <path d="M146,112 Q138,103 131,107" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.46"/>
+      <path d="M146,112 Q154,103 161,107" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.46"/>
+      <path d="M146,112 Q146,102 146,106" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.46"/>
+      <!-- stepped tower left -->
+      <rect x="170" y="90" width="15" height="50" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+      <rect x="167" y="81" width="21" height="10" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+      <rect x="163" y="72" width="29" height="10" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+      <line x1="178" y1="72" x2="178" y2="56" stroke="#8B2635" stroke-width="0.7" opacity="0.42"/>
+      <rect x="196" y="98" width="16" height="42" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+      <rect x="216" y="82" width="20" height="58" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+      <line x1="226" y1="82" x2="226" y2="66" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+      <!-- BURJ KHALIFA — the tallest, center-left -->
+      <line x1="300" y1="140" x2="300" y2="3" stroke="#8B2635" stroke-width="1.4" opacity="0.62"/>
+      <line x1="297" y1="140" x2="297" y2="14" stroke="#8B2635" stroke-width="0.9" opacity="0.48"/>
+      <line x1="303" y1="140" x2="303" y2="14" stroke="#8B2635" stroke-width="0.9" opacity="0.48"/>
+      <rect x="294" y="44" width="12" height="96" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.52"/>
+      <rect x="290" y="60" width="20" height="80" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.46"/>
+      <rect x="285" y="76" width="30" height="64" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.42"/>
+      <rect x="278" y="90" width="44" height="50" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+      <rect x="270" y="104" width="60" height="36" fill="none" stroke="#8B2635" stroke-width="0.6" opacity="0.34"/>
+      <!-- side towers near Burj -->
+      <rect x="240" y="78" width="18" height="62" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+      <line x1="249" y1="78" x2="249" y2="62" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+      <rect x="340" y="76" width="18" height="64" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+      <line x1="349" y1="76" x2="349" y2="60" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+      <rect x="362" y="86" width="20" height="54" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+      <line x1="372" y1="86" x2="372" y2="68" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+      <!-- mid buildings -->
+      <rect x="388" y="94" width="15" height="46" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+      <rect x="407" y="80" width="20" height="60" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+      <rect x="431" y="88" width="16" height="52" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+      <!-- twin arch towers -->
+      <rect x="452" y="68" width="14" height="72" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.46"/>
+      <path d="M452,68 Q459,54 466,68" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.48"/>
+      <rect x="471" y="68" width="14" height="72" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.46"/>
+      <path d="M471,68 Q478,54 485,68" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.48"/>
+      <!-- palm centre -->
+      <line x1="504" y1="140" x2="504" y2="114" stroke="#8B2635" stroke-width="1.1" opacity="0.52"/>
+      <path d="M504,114 Q496,105 489,109" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.46"/>
+      <path d="M504,114 Q512,105 519,109" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.46"/>
+      <path d="M504,114 Q504,104 504,108" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.46"/>
+      <!-- BURJ AL ARAB — iconic sail -->
+      <path d="M548,140 L548,24 L600,140 Z" fill="none" stroke="#8B2635" stroke-width="1.3" opacity="0.58"/>
+      <line x1="548" y1="24" x2="548" y2="8" stroke="#8B2635" stroke-width="1" opacity="0.54"/>
+      <ellipse cx="548" cy="9" rx="11" ry="3.5" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+      <!-- sail floors -->
+      <path d="M549,44 Q566,56 596,132" fill="none" stroke="#8B2635" stroke-width="0.55" opacity="0.3"/>
+      <path d="M549,64 Q564,74 592,134" fill="none" stroke="#8B2635" stroke-width="0.5" opacity="0.26"/>
+      <path d="M549,88 Q561,94 582,136" fill="none" stroke="#8B2635" stroke-width="0.5" opacity="0.23"/>
+      <path d="M549,110 Q558,114 572,138" fill="none" stroke="#8B2635" stroke-width="0.5" opacity="0.2"/>
+      <!-- right buildings -->
+      <rect x="618" y="88" width="17" height="52" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+      <rect x="639" y="74" width="22" height="66" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+      <line x1="650" y1="74" x2="650" y2="58" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+      <rect x="665" y="86" width="16" height="54" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+      <!-- mosque dome -->
+      <rect x="688" y="102" width="30" height="38" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+      <path d="M688,102 Q703,82 718,102" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.48"/>
+      <line x1="703" y1="82" x2="703" y2="68" stroke="#8B2635" stroke-width="0.7" opacity="0.42"/>
+      <line x1="703" y1="68" x2="707" y2="58" stroke="#8B2635" stroke-width="0.6" opacity="0.36"/>
+      <!-- ferris / globe -->
+      <circle cx="756" cy="120" r="16" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.38"/>
+      <line x1="756" y1="104" x2="756" y2="136" stroke="#8B2635" stroke-width="0.5" opacity="0.26"/>
+      <line x1="740" y1="120" x2="772" y2="120" stroke="#8B2635" stroke-width="0.5" opacity="0.26"/>
+      <line x1="745" y1="109" x2="767" y2="131" stroke="#8B2635" stroke-width="0.4" opacity="0.2"/>
+      <line x1="767" y1="109" x2="745" y2="131" stroke="#8B2635" stroke-width="0.4" opacity="0.2"/>
+      <line x1="756" y1="136" x2="756" y2="140" stroke="#8B2635" stroke-width="0.9" opacity="0.46"/>
+      <!-- palms right -->
+      <line x1="784" y1="140" x2="784" y2="114" stroke="#8B2635" stroke-width="1.1" opacity="0.52"/>
+      <path d="M784,114 Q776,105 769,109" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.46"/>
+      <path d="M784,114 Q792,105 799,109" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.46"/>
+      <path d="M784,114 Q784,104 784,108" fill="none" stroke="#8B2635" stroke-width="0.9" opacity="0.46"/>
+      <line x1="808" y1="140" x2="808" y2="120" stroke="#8B2635" stroke-width="1" opacity="0.46"/>
+      <path d="M808,120 Q801,112 795,116" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+      <path d="M808,120 Q815,112 821,116" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+      <!-- far right buildings -->
+      <rect x="828" y="90" width="17" height="50" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+      <rect x="849" y="78" width="20" height="62" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+      <line x1="859" y1="78" x2="859" y2="62" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+      <rect x="873" y="94" width="15" height="46" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+      <rect x="892" y="84" width="18" height="56" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+      <rect x="914" y="100" width="13" height="40" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+      <rect x="931" y="88" width="17" height="52" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.42"/>
+      <rect x="952" y="96" width="14" height="44" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+      <rect x="970" y="82" width="20" height="58" fill="none" stroke="#8B2635" stroke-width="0.8" opacity="0.44"/>
+      <line x1="980" y1="82" x2="980" y2="66" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+      <rect x="994" y="96" width="14" height="44" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+      <rect x="1012" y="88" width="17" height="52" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.4"/>
+      <rect x="1033" y="104" width="13" height="36" fill="none" stroke="#8B2635" stroke-width="0.6" opacity="0.34"/>
+      <rect x="1050" y="92" width="17" height="48" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.38"/>
+      <rect x="1072" y="106" width="28" height="34" fill="none" stroke="#8B2635" stroke-width="0.7" opacity="0.36"/>
+      <!-- airplane animated -->
+      <g style="animation:flyplane 16s linear infinite;">
+        <path d="M0,22 L12,18.5 L0,15 L2.5,18.5 Z" fill="none" stroke="#8B2635" stroke-width="1" opacity="0.5"/>
+        <line x1="-2" y1="18.5" x2="-12" y2="18.5" stroke="#8B2635" stroke-width="0.8" opacity="0.4"/>
+        <line x1="2" y1="21" x2="-4" y2="25" stroke="#8B2635" stroke-width="0.6" opacity="0.35"/>
+        <line x1="2" y1="16" x2="-4" y2="12" stroke="#8B2635" stroke-width="0.6" opacity="0.35"/>
+      </g>
+    </svg>
+    <style>@keyframes flyplane{0%{transform:translateX(-40px)}100%{transform:translateX(1160px)}}</style>
+    <div style="display:flex;gap:48px;flex-wrap:wrap;justify-content:center;margin-top:4px;" class="reveal reveal-delay-2">
+      <span style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--wine);">Quality Network</span>
+      <span style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--wine);">Real Connections</span>
+      <span style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--wine);">Exclusive Opportunities</span>
+      <span style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--wine);">Continuous Support</span>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testimonials-header">
+    <div>
+      <div class="section-eyebrow reveal">Testimonials</div>
+      <h2 class="section-title reveal reveal-delay-1">What my<br><em>clients say</em></h2>
+    </div>
+    <div class="slider-controls reveal reveal-delay-2">
+      <button class="slider-btn" id="prevBtn" onclick="slideTestimonials(-1)">&#8592;</button>
+      <button class="slider-btn" id="nextBtn" onclick="slideTestimonials(1)">&#8594;</button>
+    </div>
+  </div>
+  <div class="testimonials-track-wrap">
+    <div class="testimonials-track" id="testimonialsTrack">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Melany guided me through the entire process of relocating to Dubai. Her support was invaluable — she thought of details I never would have considered. I felt completely safe every step of the way.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">VS</div>
+          <div>
+            <div class="testimonial-name">Valeria S.</div>
+            <div class="testimonial-role">Relocated to Dubai, 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">I set up my Freezone company with Melany's help in just 3 weeks. The process was smooth, legal, and she was always available to answer my questions. Highly recommended!</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">CR</div>
+          <div>
+            <div class="testimonial-name">Carlos R.</div>
+            <div class="testimonial-role">Business Owner, UAE Freezone</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Thanks to Melany's English coaching, I landed my dream job in Dubai. Her approach is practical, patient, and adapted to real working-life situations. Truly life-changing.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ML</div>
+          <div>
+            <div class="testimonial-name">Mariana L.</div>
+            <div class="testimonial-role">Finance Professional, Dubai</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">The networking connections Melany facilitated opened doors I didn't even know existed. Within two months I had three meaningful business partnerships here in UAE.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AP</div>
+          <div>
+            <div class="testimonial-name">Andrea P.</div>
+            <div class="testimonial-role">Entrepreneur, Abu Dhabi</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">The legal and documentation advisory saved me months of confusion. Melany knows the system and she explains everything clearly. My process was quick and stress-free.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JM</div>
+          <div>
+            <div class="testimonial-name">Juliana M.</div>
+            <div class="testimonial-role">Resident, Dubai</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info">
+    <div class="section-eyebrow reveal">Get In Touch</div>
+    <h2 class="section-title reveal reveal-delay-1">Let's <em>talk</em></h2>
+    <p class="section-desc reveal reveal-delay-2">I'm here to help you achieve your goals in UAE. It will be a pleasure to accompany you.</p>
+    <div style="margin-top: 40px;">
+      <a href="tel:+971528204496" class="contact-item reveal reveal-delay-2">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Phone / WhatsApp</div>
+          <div class="contact-val">+971 52 820 4496</div>
+        </div>
+      </a>
+      <div class="contact-item reveal reveal-delay-3">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Location</div>
+          <div class="contact-val">Dubai, United Arab Emirates</div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-big-quote reveal reveal-delay-4">
+      <p>"It will be a pleasure to accompany you!"</p>
+      <span>— Melany Villalobos</span>
+    </div>
+  </div>
+  <div>
+    <div class="contact-form reveal reveal-delay-1">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-input" placeholder="Your name" id="fname">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-input" placeholder="Your last name" id="lname">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-input" placeholder="you@email.com" id="femail">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Service of Interest</label>
+        <select class="form-select" id="fservice">
+          <option value="">Select a service...</option>
+          <option>Migrate to UAE</option>
+          <option>Open Your Business</option>
+          <option>International Logistics</option>
+          <option>Legal Advisory</option>
+          <option>Networking in UAE</option>
+          <option>Learn English</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="Tell me about your goals in UAE..." id="fmsg"></textarea>
+      </div>
+      <div class="form-success" id="formSuccess">
+        ♥ Thank you! I'll be in touch with you very soon.
+      </div>
+      <button class="btn-primary" onclick="submitForm()" style="width:100%;justify-content:center;">
+        Send Message
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER SKYLINE -->
+<div style="background:var(--text-dark);line-height:0;overflow:hidden;padding-top:28px;">
+<svg viewBox="0 0 1440 72" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block;" aria-hidden="true">
+  <line x1="0" y1="64" x2="1440" y2="64" stroke="rgba(232,168,168,0.3)" stroke-width="0.7"/>
+  <rect x="20" y="42" width="12" height="22" fill="none" stroke="rgba(232,168,168,0.28)" stroke-width="0.7"/>
+  <rect x="36" y="32" width="16" height="32" fill="none" stroke="rgba(232,168,168,0.28)" stroke-width="0.7"/>
+  <rect x="56" y="22" width="14" height="42" fill="none" stroke="rgba(232,168,168,0.3)" stroke-width="0.7"/>
+  <line x1="63" y1="22" x2="63" y2="12" stroke="rgba(232,168,168,0.28)" stroke-width="0.6"/>
+  <rect x="74" y="36" width="12" height="28" fill="none" stroke="rgba(232,168,168,0.26)" stroke-width="0.6"/>
+  <rect x="90" y="28" width="18" height="36" fill="none" stroke="rgba(232,168,168,0.28)" stroke-width="0.7"/>
+  <path d="M90,28 Q99,18 108,28" fill="none" stroke="rgba(232,168,168,0.3)" stroke-width="0.7"/>
+  <line x1="120" y1="64" x2="120" y2="46" stroke="rgba(232,168,168,0.3)" stroke-width="0.8"/>
+  <path d="M120,46 Q114,40 109,43" fill="none" stroke="rgba(232,168,168,0.28)" stroke-width="0.7"/>
+  <path d="M120,46 Q126,40 131,43" fill="none" stroke="rgba(232,168,168,0.28)" stroke-width="0.7"/>
+  <rect x="140" y="34" width="14" height="30" fill="none" stroke="rgba(232,168,168,0.28)" stroke-width="0.6"/>
+  <rect x="158" y="26" width="16" height="38" fill="none" stroke="rgba(232,168,168,0.28)" stroke-width="0.7"/>
+  <line x1="166" y1="26" x2="166" y2="14" stroke="rgba(232,168,168,0.26)" stroke-width="0.6"/>
+  <rect x="178" y="32" width="14" height="32" fill="none" stroke="rgba(232,168,168,0.26)" stroke-width="0.6"/>
+  <!-- Burj Khalifa -->
+  <line x1="260" y1="64" x2="260" y2="2" stroke="rgba(232,168,168,0.45)" stroke-width="1.1"/>
+  <line x1="257" y1="64" x2="257" y2="10" stroke="rgba(232,168,168,0.32)" stroke-width="0.7"/>
+  <line x1="263" y1="64" x2="263" y2="10" stroke="rgba(232,168,168,0.32)" stroke-width="0.7"/>
+  <rect x="255" y="18" width="10" height="46" fill="none" stroke="rgba(232,168,168,0.32)" stroke-width="0.6"/>
+  <rect x="251" y="28" width="18" height="36" fill="none" stroke="rgba(232,168,168,0.28)" stroke-width="0.6"/>
+  <rect x="246" y="38" width="28" height="26" fill="none" stroke="rgba(232,168,168,0.25)" stroke-width="0.6"/>
+  <rect x="240" y="48" width="40" height="16" fill="none" stroke="rgba(232,168,168,0.22)" stroke-width="0.5"/>
+  <rect x="204" y="30" width="14" height="34" fill="none" stroke="rgba(232,168,168,0.28)" stroke-width="0.6"/>
+  <line x1="211" y1="30" x2="211" y2="20" stroke="rgba(232,168,168,0.26)" stroke-width="0.6"/>
+  <rect x="286" y="28" width="14" height="36" fill="none" stroke="rgba(232,168,168,0.28)" stroke-width="0.6"/>
+  <line x1="293" y1="28" x2="293" y2="18" stroke="rgba(232,168,168,0.26)" stroke-width="0.6"/>
+  <rect x="304" y="34" width="12" height="30" fill="none" stroke="rgba(232,168,168,0.26)" stroke-width="0.6"/>
+  <rect x="320" y="40" width="14" height="24" fill="none" stroke="rgba(232,168,168,0.24)" stroke-width="0.6"/>
+  <rect x="338" y="32" width="16" height="32" fill="none" stroke="rgba(232,168,168,0.26)" stroke-width="0.6"/>
+  <!-- Burj Al Arab sail -->
+  <path d="M390,64 L390,18 L428,64 Z" fill="none" stroke="rgba(232,168,168,0.4)" stroke-width="0.9"/>
+  <line x1="390" y1="18" x2="390" y2="8" stroke="rgba(232,168,168,0.36)" stroke-width="0.7"/>
+  <ellipse cx="390" cy="9" rx="7" ry="2" fill="none" stroke="rgba(232,168,168,0.3)" stroke-width="0.6"/>
+  <path d="M391,30 Q404,38 424,58" fill="none" stroke="rgba(232,168,168,0.2)" stroke-width="0.5"/>
+  <path d="M391,46 Q401,50 419,62" fill="none" stroke="rgba(232,168,168,0.18)" stroke-width="0.4"/>
+  <rect x="444" y="36" width="14" height="28" fill="none" stroke="rgba(232,168,168,0.26)" stroke-width="0.6"/>
+  <rect x="462" y="26" width="18" height="38" fill="none" stroke="rgba(232,168,168,0.28)" stroke-width="0.6"/>
+  <line x1="471" y1="26" x2="471" y2="14" stroke="rgba(232,168,168,0.24)" stroke-width="0.6"/>
+  <rect x="484" y="34" width="12" height="30" fill="none" stroke="rgba(232,168,168,0.24)" stroke-width="0.6"/>
+  <rect x="500" y="42" width="24" height="22" fill="none" stroke="rgba(232,168,168,0.24)" stroke-width="0.6"/>
+  <path d="M500,42 Q512,30 524,42" fill="none" stroke="rgba(232,168,168,0.28)" stroke-width="0.7"/>
+  <line x1="512" y1="30" x2="512" y2="20" stroke="rgba(232,168,168,0.24)" stroke-width="0.6"/>
+  <line x1="536" y1="64" x2="536" y2="48" stroke="rgba(232,168,168,0.3)" stroke-width="0.8"/>
+  <path d="M536,48 Q530,42 525,45" fill="none" stroke="rgba(232,168,168,0.26)" stroke-width="0.7"/>
+  <path d="M536,48 Q542,42 547,45" fill="none" stroke="rgba(232,168,168,0.26)" stroke-width="0.7"/>
+  <rect x="556" y="38" width="14" height="26" fill="none" stroke="rgba(232,168,168,0.24)" stroke-width="0.6"/>
+  <rect x="574" y="28" width="16" height="36" fill="none" stroke="rgba(232,168,168,0.26)" stroke-width="0.6"/>
+  <line x1="582" y1="28" x2="582" y2="16" stroke="rgba(232,168,168,0.24)" stroke-width="0.6"/>
+  <rect x="594" y="36" width="12" height="28" fill="none" stroke="rgba(232,168,168,0.24)" stroke-width="0.6"/>
+  <rect x="610" y="42" width="14" height="22" fill="none" stroke="rgba(232,168,168,0.22)" stroke-width="0.5"/>
+  <rect x="628" y="34" width="16" height="30" fill="none" stroke="rgba(232,168,168,0.24)" stroke-width="0.6"/>
+  <rect x="648" y="40" width="12" height="24" fill="none" stroke="rgba(232,168,168,0.22)" stroke-width="0.5"/>
+  <rect x="664" y="28" width="18" height="36" fill="none" stroke="rgba(232,168,168,0.26)" stroke-width="0.6"/>
+  <line x1="673" y1="28" x2="673" y2="16" stroke="rgba(232,168,168,0.22)" stroke-width="0.6"/>
+  <rect x="686" y="36" width="12" height="28" fill="none" stroke="rgba(232,168,168,0.22)" stroke-width="0.5"/>
+  <rect x="702" y="44" width="20" height="20" fill="none" stroke="rgba(232,168,168,0.22)" stroke-width="0.5"/>
+  <line x1="720" y1="64" x2="720" y2="48" stroke="rgba(232,168,168,0.26)" stroke-width="0.7"/>
+  <path d="M720,48 Q714,42 709,45" fill="none" stroke="rgba(232,168,168,0.22)" stroke-width="0.6"/>
+  <path d="M720,48 Q726,42 731,45" fill="none" stroke="rgba(232,168,168,0.22)" stroke-width="0.6"/>
+  <rect x="740" y="36" width="14" height="28" fill="none" stroke="rgba(232,168,168,0.22)" stroke-width="0.5"/>
+  <rect x="758" y="28" width="16" height="36" fill="none" stroke="rgba(232,168,168,0.24)" stroke-width="0.6"/>
+  <rect x="778" y="40" width="12" height="24" fill="none" stroke="rgba(232,168,168,0.2)" stroke-width="0.5"/>
+  <rect x="794" y="32" width="16" height="32" fill="none" stroke="rgba(232,168,168,0.22)" stroke-width="0.5"/>
+  <rect x="814" y="42" width="12" height="22" fill="none" stroke="rgba(232,168,168,0.2)" stroke-width="0.5"/>
+  <rect x="830" y="36" width="14" height="28" fill="none" stroke="rgba(232,168,168,0.2)" stroke-width="0.5"/>
+  <rect x="848" y="44" width="22" height="20" fill="none" stroke="rgba(232,168,168,0.2)" stroke-width="0.5"/>
+  <rect x="874" y="38" width="14" height="26" fill="none" stroke="rgba(232,168,168,0.2)" stroke-width="0.5"/>
+  <rect x="892" y="48" width="20" height="16" fill="none" stroke="rgba(232,168,168,0.18)" stroke-width="0.5"/>
+  <rect x="916" y="40" width="12" height="24" fill="none" stroke="rgba(232,168,168,0.18)" stroke-width="0.5"/>
+  <rect x="932" y="34" width="14" height="30" fill="none" stroke="rgba(232,168,168,0.2)" stroke-width="0.5"/>
+  <rect x="950" y="44" width="18" height="20" fill="none" stroke="rgba(232,168,168,0.17)" stroke-width="0.5"/>
+  <rect x="972" y="38" width="12" height="26" fill="none" stroke="rgba(232,168,168,0.17)" stroke-width="0.5"/>
+  <rect x="988" y="48" width="20" height="16" fill="none" stroke="rgba(232,168,168,0.16)" stroke-width="0.5"/>
+  <rect x="1012" y="40" width="14" height="24" fill="none" stroke="rgba(232,168,168,0.16)" stroke-width="0.4"/>
+  <rect x="1030" y="48" width="18" height="16" fill="none" stroke="rgba(232,168,168,0.15)" stroke-width="0.4"/>
+  <rect x="1052" y="44" width="12" height="20" fill="none" stroke="rgba(232,168,168,0.15)" stroke-width="0.4"/>
+  <rect x="1068" y="50" width="20" height="14" fill="none" stroke="rgba(232,168,168,0.14)" stroke-width="0.4"/>
+  <rect x="1092" y="44" width="14" height="20" fill="none" stroke="rgba(232,168,168,0.14)" stroke-width="0.4"/>
+  <rect x="1110" y="50" width="18" height="14" fill="none" stroke="rgba(232,168,168,0.13)" stroke-width="0.4"/>
+  <rect x="1132" y="44" width="12" height="20" fill="none" stroke="rgba(232,168,168,0.13)" stroke-width="0.4"/>
+  <rect x="1148" y="50" width="20" height="14" fill="none" stroke="rgba(232,168,168,0.12)" stroke-width="0.4"/>
+  <rect x="1172" y="44" width="14" height="20" fill="none" stroke="rgba(232,168,168,0.12)" stroke-width="0.4"/>
+  <rect x="1190" y="50" width="18" height="14" fill="none" stroke="rgba(232,168,168,0.11)" stroke-width="0.4"/>
+  <rect x="1212" y="44" width="12" height="20" fill="none" stroke="rgba(232,168,168,0.11)" stroke-width="0.4"/>
+  <rect x="1230" y="50" width="20" height="14" fill="none" stroke="rgba(232,168,168,0.1)" stroke-width="0.4"/>
+  <rect x="1254" y="44" width="14" height="20" fill="none" stroke="rgba(232,168,168,0.1)" stroke-width="0.4"/>
+  <rect x="1274" y="50" width="18" height="14" fill="none" stroke="rgba(232,168,168,0.1)" stroke-width="0.4"/>
+  <rect x="1296" y="46" width="16" height="18" fill="none" stroke="rgba(232,168,168,0.09)" stroke-width="0.4"/>
+  <rect x="1316" y="50" width="22" height="14" fill="none" stroke="rgba(232,168,168,0.09)" stroke-width="0.4"/>
+  <rect x="1342" y="46" width="14" height="18" fill="none" stroke="rgba(232,168,168,0.09)" stroke-width="0.4"/>
+  <rect x="1360" y="52" width="20" height="12" fill="none" stroke="rgba(232,168,168,0.08)" stroke-width="0.4"/>
+  <rect x="1384" y="48" width="16" height="16" fill="none" stroke="rgba(232,168,168,0.08)" stroke-width="0.4"/>
+  <rect x="1404" y="54" width="20" height="10" fill="none" stroke="rgba(232,168,168,0.07)" stroke-width="0.3"/>
+  <rect x="1428" y="50" width="12" height="14" fill="none" stroke="rgba(232,168,168,0.07)" stroke-width="0.3"/>
+</svg>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo">Melany <span>Villalobos</span></div>
+    <nav class="footer-nav">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#process">How It Works</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Melany Villalobos · Dubai, UAE · +971 52 820 4496</span>
+    <span class="footer-love">Made with <span>♥</span> for your new life in UAE</span>
+  </div>
+</footer>
+
+<!-- SERVICE MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModalBtn()">×</button>
+    <div class="modal-img"><img id="modalImg" src="" alt=""></div>
+    <div class="modal-body">
+      <div class="modal-tag" id="modalTag">Service</div>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-title-em" id="modalTitleEm"></div>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-includes">
+        <h4>What's Included</h4>
+        <ul id="modalList"></ul>
+      </div>
+      <div class="modal-footer">
+        <a href="#contact" class="btn-primary" onclick="closeModalBtn()">
+          Book This Service
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const services = [
+  {
+    tag: "Main Service",
+    name: "Migrate to",
+    sub: "UAE",
+    desc: "Step-by-step advisory to live and work in the United Arab Emirates with clarity and strategy.",
+    img: "https://picsum.photos/seed/uaecity/700/400",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>`,
+    includes: ["Profile & goals evaluation","Real visa options for your situation","Visa and residency orientation","Employability and job opportunities","Daily life adaptation in UAE","Step-by-step pre-travel checklist","Accommodation, banks, transport & SIM recommendations","Personalized accompaniment throughout"]
+  },
+  {
+    tag: "Service",
+    name: "Open Your Business",
+    sub: "in UAE",
+    desc: "Freezone, Mainland and options tailored to your profile. We help you set up fast, legally, and 100% suited to your business.",
+    img: "https://picsum.photos/seed/bizuae/700/400",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>`,
+    includes: ["Business idea & objectives evaluation","Ideal structure recommendation","Company registration & licenses","Corporate bank account opening","Legal, tax & accounting advisory","Full accompaniment until launch"]
+  },
+  {
+    tag: "Service",
+    name: "International",
+    sub: "Logistics & Shipping",
+    desc: "Solutions to move your products or belongings safely and efficiently — door to door, anywhere in the world.",
+    img: "https://picsum.photos/seed/logistix/700/400",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>`,
+    includes: ["Advisory based on your specific needs","Quote with our best allied partners","Door-to-door shipment management","Customs clearance","Full tracking & support","Customized logistics solutions"]
+  },
+  {
+    tag: "Service",
+    name: "Legal Advisory",
+    sub: "& Documentation",
+    desc: "I guide and support you in every legal and administrative step to make your process simple, safe, and successful.",
+    img: "https://picsum.photos/seed/legaluae/700/400",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`,
+    includes: ["Document orientation — what you need & how to prepare","Migration and administrative processes","Residency & company documentation","Translations, apostilles & certifications","Legal question resolution & rights clarification","Strategic accompaniment at every step"]
+  },
+  {
+    tag: "Service",
+    name: "Networking &",
+    sub: "Connections in UAE",
+    desc: "Build your network, connect with opportunities, and open new doors in the United Arab Emirates.",
+    img: "https://picsum.photos/seed/network9/700/400",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+    includes: ["Connection with professionals & entrepreneurs","Exclusive events and meetings","Strategic introductions","Mentorships and collaboration opportunities","Support to grow your network","Access to UAE support communities"]
+  },
+  {
+    tag: "Service",
+    name: "Learn English",
+    sub: "as a Second Language",
+    desc: "I help you improve your English in a practical, personalized way so you gain confidence and speak with security in any situation.",
+    img: "https://picsum.photos/seed/english7/700/400",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>`,
+    includes: ["Level assessment","Personalized learning strategy","Recommended resources & materials","Real conversation practice","English for work & international life","Tips to overcome fear of speaking","Progress tracking & motivation"]
+  }
+];
+
+const grid = document.getElementById('servicesGrid');
+services.forEach((s, i) => {
+  const card = document.createElement('div');
+  card.className = 'service-card reveal reveal-delay-' + ((i % 3) + 1);
+  card.innerHTML = `
+    <div class="service-card-img">
+      <img src="${s.img}" alt="${s.name}" loading="lazy">
+      <div class="service-icon-wrap">${s.icon}</div>
+    </div>
+    <div class="service-card-body">
+      <div class="service-tag">${s.tag}</div>
+      <div class="service-name">${s.name}</div>
+      <div class="service-name-sub">${s.sub}</div>
+      <p class="service-desc">${s.desc}</p>
+      <span class="service-cta"><span class="service-cta-line"></span>Learn more</span>
+    </div>`;
+  card.addEventListener('click', () => openModal(i));
+  grid.appendChild(card);
+});
+
+function openModal(i) {
+  const s = services[i];
+  document.getElementById('modalTag').textContent = s.tag;
+  document.getElementById('modalTitle').textContent = s.name;
+  document.getElementById('modalTitleEm').textContent = s.sub;
+  document.getElementById('modalDesc').textContent = s.desc;
+  document.getElementById('modalImg').src = s.img;
+  document.getElementById('modalImg').alt = s.name;
+  const ul = document.getElementById('modalList');
+  ul.innerHTML = s.includes.map(item => `<li>${item}</li>`).join('');
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModalBtn();
+}
+function closeModalBtn() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+let slideIdx = 0;
+function slideTestimonials(dir) {
+  const track = document.getElementById('testimonialsTrack');
+  const cards = track.querySelectorAll('.testimonial-card');
+  const total = cards.length;
+  const visible = window.innerWidth < 900 ? 1 : 3;
+  slideIdx = Math.max(0, Math.min(slideIdx + dir, total - visible));
+  const cardW = cards[0].offsetWidth + 24;
+  track.style.transform = `translateX(-${slideIdx * cardW}px)`;
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('mainNav');
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+function submitForm() {
+  const n = document.getElementById('fname').value;
+  const e = document.getElementById('femail').value;
+  if (!n || !e) { alert('Please fill in at least your name and email.'); return; }
+  document.getElementById('formSuccess').style.display = 'block';
+  ['fname','lname','femail','fservice','fmsg'].forEach(id => document.getElementById(id).value = '');
+  setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 5000);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('navLinks').classList.remove('open');
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
