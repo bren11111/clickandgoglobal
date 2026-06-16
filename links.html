@@ -97,11 +97,11 @@ body{
 /* ============================================================
    SKYLINE DUBÁI (cabecera, generado por código)
    ============================================================ */
-.skyline{ position:relative; z-index:2; height:120px; margin:8px -22px -14px; overflow:hidden;
-  -webkit-mask-image:linear-gradient(to top, #000 70%, transparent 100%);
-          mask-image:linear-gradient(to top, #000 70%, transparent 100%); }
-.skyline .glow{ position:absolute; left:0; right:0; bottom:0; height:96px;
-  background:radial-gradient(62% 130% at 50% 100%, rgba(233,216,166,.30), rgba(199,162,74,.11) 44%, transparent 78%); }
+.skyline{ position:relative; z-index:2; height:90px; margin:8px -22px -16px; overflow:hidden;
+  -webkit-mask-image:linear-gradient(to top, #000 64%, transparent 100%);
+          mask-image:linear-gradient(to top, #000 64%, transparent 100%); }
+.skyline .glow{ position:absolute; left:0; right:0; bottom:0; height:86px;
+  background:radial-gradient(64% 135% at 50% 100%, rgba(233,216,166,.30), rgba(199,162,74,.11) 44%, transparent 78%); }
 .skyline svg{ position:absolute; inset:0; width:100%; height:100%; display:block; }
 .skyline .win{ fill:var(--champan); animation:twinkle 3.2s ease-in-out infinite; }
 .skyline .beacon{ fill:#fff; animation:beacon 1.6s ease-in-out infinite; }
@@ -275,10 +275,9 @@ body{
     <button id="btn-es" onclick="setLang('es')">ES</button>
   </div>
 
-  <!-- ===== SKYLINE DUBÁI (se llena por JS) ===== -->
+  <!-- ===== HORIZONTE GOLDEN HOUR (glow + brasas) ===== -->
   <div class="skyline" aria-hidden="true">
     <div class="glow"></div>
-    <svg id="sky" viewBox="0 0 444 118" preserveAspectRatio="xMidYMax meet"></svg>
     <div id="embers"></div>
   </div>
 
@@ -440,65 +439,19 @@ function saveContact(){
   document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(u);
 }
 
-/* ====== SKYLINE Dubái (generado) ====== */
-(function skyline(){
-  var svg=document.getElementById('sky'); if(!svg) return;
-  function el(n,a){ var e=document.createElementNS(SVGNS,n); for(var k in a) e.setAttribute(k,a[k]); return e; }
-  var BASE=118;
-  // degradado de edificio (cima más clara → se funde con el fondo)
-  var defs=el('defs',{});
-  var lg=el('linearGradient',{id:'bld',x1:0,y1:0,x2:0,y2:1});
-  lg.appendChild(el('stop',{offset:'0%','stop-color':'#0c1b2e'}));
-  lg.appendChild(el('stop',{offset:'100%','stop-color':'#060e1a'}));
-  defs.appendChild(lg); svg.appendChild(defs);
-  // capa trasera (más pálida) — torres bajas
-  var back=[[10,26,58],[40,22,70],[70,30,50],[300,28,64],[340,24,74],[372,30,54],[404,28,66]];
-  back.forEach(function(b){ svg.appendChild(el('rect',{x:b[0],y:BASE-b[2],width:b[1],height:b[2],fill:'#0b1830','fill-opacity':.38})); });
-  // capa frontal (oscura) — torres altas + ventanas
-  var towers=[]; // x,w,top
-  var front=[[18,24,70],[48,20,86],[78,16,60],[150,18,78],[176,16,92],[248,18,80],[272,20,66],[330,22,96],[360,20,72],[388,24,86]];
-  front.forEach(function(b){ var top=BASE-b[2];
-    svg.appendChild(el('rect',{x:b[0],y:top,width:b[1],height:b[2],fill:'url(#bld)'}));
-    towers.push({x:b[0],w:b[1],top:top});
-  });
-  // Burj Al Arab (vela)
-  svg.appendChild(el('path',{d:'M104 118 C104 86 116 62 119 50 C122 62 134 86 134 118 Z',fill:'url(#bld)'}));
-  svg.appendChild(el('path',{d:'M119 50 V42',stroke:'#9A7D22','stroke-width':1}));
-  // Burj Khalifa (aguja escalonada, centro)
-  svg.appendChild(el('path',{d:'M198 118 L200 64 L202 46 L204 30 L206 16 L208 28 L210 46 L212 64 L214 118 Z',fill:'url(#bld)'}));
-  towers.push({x:200,w:12,top:64});
-  // baliza (parpadea) en la punta
-  svg.appendChild(el('circle',{cx:206,cy:14,r:1.6,class:'beacon'}));
-
-  // ventanas doradas (titilan)
-  function windows(t){
-    if(t.w<10) { return; }
-    var cols=Math.max(2,Math.floor(t.w/6)), rows=Math.floor((BASE-6-t.top)/8);
-    for(var c=0;c<cols;c++){ for(var r=0;r<rows;r++){
-      if(Math.random()<0.45) continue;
-      var wx=t.x+3+c*((t.w-4)/cols), wy=t.top+5+r*8;
-      var rect=el('rect',{x:wx.toFixed(1),y:wy.toFixed(1),width:1.4,height:2.2,class:'win'});
-      if(!REDUCE) rect.style.animationDelay=(Math.random()*3.2).toFixed(2)+'s';
-      else rect.style.opacity=Math.random()<.5?'.7':'.3';
-      svg.appendChild(rect);
-    }}
+/* ====== HORIZONTE · brasas doradas (sin edificios) ====== */
+(function embers(){
+  var box=document.getElementById('embers'); if(!box || REDUCE) return;
+  function ember(){
+    var s=document.createElement('span'); s.className='ember';
+    var x=10+Math.random()*(box.clientWidth-20); s.style.left=x+'px'; s.style.bottom='6px';
+    box.appendChild(s);
+    var dur=2600+Math.random()*2600, rise=28+Math.random()*46, drift=(Math.random()*20-10);
+    s.animate([{transform:'translate(0,0)',opacity:0},{opacity:.85,offset:.15},
+      {transform:'translate('+drift+'px,-'+rise+'px)',opacity:0}],{duration:dur,easing:'ease-out'})
+      .onfinish=function(){ s.remove(); };
   }
-  towers.forEach(windows);
-
-  // brasas que suben
-  if(!REDUCE){
-    var box=document.getElementById('embers');
-    function ember(){
-      var s=document.createElement('span'); s.className='ember';
-      var x=10+Math.random()*(box.clientWidth-20); s.style.left=x+'px'; s.style.bottom='8px';
-      box.appendChild(s);
-      var dur=2600+Math.random()*2600, rise=50+Math.random()*60, drift=(Math.random()*20-10);
-      s.animate([{transform:'translate(0,0)',opacity:0},{opacity:.9,offset:.15},
-        {transform:'translate('+drift+'px,-'+rise+'px)',opacity:0}],{duration:dur,easing:'ease-out'})
-        .onfinish=function(){ s.remove(); };
-    }
-    setInterval(ember, 650);
-  }
+  setInterval(ember, 700);
 })();
 
 /* ====== CONSTELACIÓN dorada interactiva ====== */
@@ -540,20 +493,3 @@ document.querySelectorAll('.glass').forEach(function(el){
 });
 
 /* ====== CONTADORES que animan ====== */
-(function counters(){
-  var nums=document.querySelectorAll('.num[data-target]');
-  function fmt(n,f){ return f==='comma'? Math.round(n).toLocaleString('en-US') : Math.round(n).toString(); }
-  function run(elm){ var target=+elm.getAttribute('data-target'), f=elm.getAttribute('data-format'), t0=null, dur=1600;
-    if(REDUCE){ elm.textContent=fmt(target,f); return; }
-    function step(t){ if(!t0)t0=t; var p=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-p,3);
-      elm.textContent=fmt(target*e,f); if(p<1) requestAnimationFrame(step); }
-    requestAnimationFrame(step);
-  }
-  if('IntersectionObserver' in window && !REDUCE){
-    var io=new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ run(en.target); io.unobserve(en.target); } }); },{threshold:.6});
-    nums.forEach(function(n){ io.observe(n); });
-  } else { nums.forEach(run); }
-})();
-</script>
-</body>
-</html>
