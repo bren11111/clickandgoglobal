@@ -549,6 +549,26 @@
   .xchip:hover{background:var(--mauve); color:var(--white); border-color:var(--mauve);}
   .xnote{font-size:0.74rem; font-weight:700; letter-spacing:0.03em; color:var(--mauve); opacity:0.85; margin:22px 0 0;}
   @media (max-width:560px){ .xbox{padding:24px 18px;} }
+  /* ---------- experiencias visuales ---------- */
+  .xgrid{display:grid; grid-template-columns:repeat(4, 1fr); gap:18px;}
+  .xcard{background:var(--white); border-radius:22px; overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column; transition:transform .3s ease;}
+  .xcard:hover{transform:translateY(-6px);}
+  .xcard-img{aspect-ratio:4/3; background:var(--blush); overflow:hidden;}
+  .xcard-img img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+  .xcard:hover .xcard-img img{transform:scale(1.06);}
+  .xcard-body{padding:16px 16px 18px; display:flex; flex-direction:column; gap:5px; flex:1;}
+  .xcard-name{font-size:0.98rem; font-weight:700; color:var(--mauve-deep);}
+  .xcard-desc{font-size:0.8rem; line-height:1.45; opacity:0.75; flex:1;}
+  .xcard-cta{margin-top:8px; font-size:0.78rem; font-weight:700; color:var(--mauve);}
+  .xrow-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin:44px 0 14px;}
+  .xrow-head h3{font-size:1.25rem; font-weight:700; color:var(--mauve-deep); margin:0;}
+  .xhint{font-size:0.75rem; font-weight:700; color:var(--mauve);}
+  .xscroll{display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:12px; -webkit-overflow-scrolling:touch;}
+  .xticket{flex:0 0 170px; scroll-snap-align:start; position:relative; border-radius:18px; overflow:hidden; aspect-ratio:3/4; background:var(--blush); box-shadow:var(--shadow);}
+  .xticket img{width:100%; height:100%; object-fit:cover;}
+  .xticket span{position:absolute; left:0; right:0; bottom:0; padding:28px 12px 12px; font-size:0.82rem; font-weight:700; color:var(--white); background:linear-gradient(180deg, transparent, rgba(45,26,27,0.85));}
+  @media (max-width:900px){ .xgrid{grid-template-columns:repeat(2, 1fr); gap:12px;} }
+  @media (max-width:560px){ .xcard-body{padding:12px 12px 14px;} .xcard-name{font-size:0.88rem;} .xcard-desc{font-size:0.74rem;} .xticket{flex-basis:140px;} }
 </style>
 </head>
 <body>
@@ -652,125 +672,11 @@
     </div>
 
     <div class="inline-cta reveal">
-      <p class="inline-cta-lead" data-lang-content="es">¿Lista para vivir tu propia historia?</p>
-      <p class="inline-cta-lead" data-lang-content="en">Ready to live your own story?</p>
+      <p class="inline-cta-lead" data-lang-content="es">¿Qué necesitas en Dubái?</p>
+      <p class="inline-cta-lead" data-lang-content="en">What do you need in Dubai?</p>
       <a class="btn btn-primary" href="#servicios">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        <span data-lang-content="es">Empecemos tu viaje</span><span data-lang-content="en">Let's start your trip</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- PAQUETES -->
-<!-- PROBLEMA / SOLUCIÓN -->
-<section class="problem-solution">
-  <div class="wrap">
-    <div class="ps-head reveal">
-      <div class="ps-divider">
-        <span class="line"></span>
-        <span class="tag">✦ <span data-lang-content="es">TU TRANSFORMACIÓN</span><span data-lang-content="en">YOUR TRANSFORMATION</span> ✦</span>
-        <span class="line"></span>
-      </div>
-      <h2><span data-lang-content="es"><em>¿Te identificas</em> con esto?</span><span data-lang-content="en"><em>Does this sound</em> like you?</span></h2>
-    </div>
-
-    <p class="ps-problem reveal">
-      <span data-lang-content="es"><strong>Muchas personas quieren viajar solas o en grupo</strong>, pero sienten que no tienen ni el itinerario, ni la guía, ni alguien que ya lo vivió y les resuelva las dudas reales.</span>
-      <span data-lang-content="en"><strong>Many people want to travel solo or in a group</strong>, but feel they don't have the itinerary, the guidance, or someone who's already lived it and can answer their real questions.</span>
-    </p>
-
-    <div class="ps-solution reveal">
-      <h3 data-lang-content="es">La Solución</h3><h3 data-lang-content="en">The Solution</h3>
-      <p data-lang-content="es">Mis servicios de <strong>viaje</strong> cambiarán eso en tu vida. Con una ruta clara, tips reales y toda la logística resuelta, <span class="accent">este 2026 dejarás de posponer el viaje que llevas meses soñando.</span></p>
-      <p data-lang-content="en">My <strong>travel</strong> services will change that. With a clear route, real tips, and every detail of the logistics handled, <span class="accent">this 2026 you'll stop postponing the trip you've been dreaming about for months.</span></p>
-
-      <div class="ps-features">
-        <div class="ps-feature">
-          <div class="diamond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3v14M9 3L4 5v14l5-2M9 3l6 2v14l-6-2M15 5v14l5-2V3l-5 2z"/></svg></div>
-          <span data-lang-content="es">Ruta clara</span><span data-lang-content="en">Clear route</span>
-        </div>
-        <div class="ps-feature">
-          <div class="diamond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/></svg></div>
-          <span data-lang-content="es">Todo resuelto</span><span data-lang-content="en">All sorted</span>
-        </div>
-        <div class="ps-feature">
-          <div class="diamond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.8 5.6L19 10l-5.2 1.4L12 17l-1.8-5.6L5 10l5.2-1.4L12 3z"/></svg></div>
-          <span data-lang-content="es">Sin miedo</span><span data-lang-content="en">Fearlessly</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="best-seller-callout reveal">
-      <div class="bsc-text">
-        <span class="bsc-tag">⭐ <span data-lang-content="es">SERVICIO MÁS VENDIDO</span><span data-lang-content="en">BEST-SELLING SERVICE</span></span>
-        <h4 data-lang-content="es">Itinerario Premium — Dubai a tu Medida</h4><h4 data-lang-content="en">Premium Itinerary — Custom Dubai</h4>
-        <p data-lang-content="es">Reservas hechas por mí + soporte por WhatsApp durante todo tu viaje.</p>
-        <p data-lang-content="en">Bookings made for you + WhatsApp support throughout your trip.</p>
-      </div>
-      <a class="bsc-cta" href="#servicios" onclick="setTab('viajes')">
-        <span data-lang-content="es">Ver el plan →</span><span data-lang-content="en">See the plan →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ¿ESTO ES PARA TI? -->
-<section id="para-ti">
-  <div class="wrap">
-    <div class="sec-head reveal" style="justify-content:center; text-align:center; flex-direction:column; align-items:center;">
-      <span class="eyebrow" data-lang-content="es">¿ESTO ES PARA TI?</span><span class="eyebrow" data-lang-content="en">IS THIS FOR YOU?</span>
-      <h2 data-lang-content="es">Hablemos de tus miedos</h2><h2 data-lang-content="en">Let's talk about your fears</h2>
-    </div>
-
-    <div class="fear-grid">
-      <div class="fear-card reveal reveal-stagger" style="--i:0">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.5 7-11.5a7 7 0 10-14 0C5 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg></div>
-        <h4 data-lang-content="es">¿Te da miedo perderte en un lugar que no conoces?</h4><h4 data-lang-content="en">Afraid of getting lost somewhere you don't know?</h4>
-        <p data-lang-content="es">Te doy la ruta día por día, con horarios y transporte ya resueltos — no tienes que improvisar nada.</p>
-        <p data-lang-content="en">I give you the day-by-day route, with timing and transport already sorted — nothing to improvise.</p>
-      </div>
-      <div class="fear-card reveal reveal-stagger" style="--i:1">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
-        <h4 data-lang-content="es">¿Te preocupa gastar de más sin darte cuenta?</h4><h4 data-lang-content="en">Worried about overspending without realizing it?</h4>
-        <p data-lang-content="es">Sabrás exactamente cuánto vas a gastar antes de subir al avión — presupuesto real, no una sorpresa.</p>
-        <p data-lang-content="en">You'll know exactly what you're spending before you board the flight — a real budget, not a surprise.</p>
-      </div>
-      <div class="fear-card reveal reveal-stagger" style="--i:2">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 12a4 4 0 118 0 4 4 0 01-8 0z"/><path d="M4 20c0-3 3-5 8-5s8 2 8 5"/></svg></div>
-        <h4 data-lang-content="es">¿Te da nervios viajar sola o en grupo pequeño?</h4><h4 data-lang-content="en">Nervous about traveling solo or in a small group?</h4>
-        <p data-lang-content="es">Ya lo hice yo primero. Te comparto exactamente lo que funciona y lo que no, para que no tengas que aprenderlo a la mala.</p>
-        <p data-lang-content="en">I did it first. I'll tell you exactly what works and what doesn't, so you don't have to learn it the hard way.</p>
-      </div>
-      <div class="fear-card reveal reveal-stagger" style="--i:3">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M15 9l-3 6-3-2 3-6z"/></svg></div>
-        <h4 data-lang-content="es">¿Te preocupa no saber ni por dónde empezar?</h4><h4 data-lang-content="en">Not sure where to even start?</h4>
-        <p data-lang-content="es">Ese es literalmente mi trabajo. Tú solo me dices tus fechas y tu estilo — yo armo el resto.</p>
-        <p data-lang-content="en">That's literally my job. You give me your dates and your style — I handle the rest.</p>
-      </div>
-      <div class="fear-card reveal reveal-stagger" style="--i:4">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.8 5.6L19 10l-5.2 1.4L12 17l-1.8-5.6L5 10l5.2-1.4L12 3z"/></svg></div>
-        <h4 data-lang-content="es">¿Tienes miedo de perderte lo mejor por no saber qué buscar?</h4><h4 data-lang-content="en">Scared of missing out on the best stuff because you don't know what to look for?</h4>
-        <p data-lang-content="es">Te doy los spots que no salen en las primeras búsquedas de Google — los que sí valen la pena.</p>
-        <p data-lang-content="en">I give you the spots that don't show up on the first page of Google — the ones actually worth it.</p>
-      </div>
-      <div class="fear-card reveal reveal-stagger" style="--i:5">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.09-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.24-.45.06-1.02.08-1.65-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.98-.13-.18-1.08-1.43-1.08-2.73s.68-1.93.92-2.2c.24-.26.53-.33.7-.33.18 0 .36 0 .51.01.16.01.38-.06.6.46.22.53.75 1.83.82 1.96.07.13.11.29.02.47-.09.18-.13.29-.26.45-.13.16-.28.35-.4.47-.13.13-.27.28-.12.55.16.26.7 1.16 1.51 1.88 1.04.93 1.91 1.22 2.18 1.36.26.13.42.11.57-.07.16-.18.66-.77.84-1.03.18-.26.35-.22.59-.13.24.09 1.52.72 1.78.85.26.13.44.2.5.31.07.11.07.62-.15 1.24z"/></svg></div>
-        <h4 data-lang-content="es">¿Y si algo sale mal y no tienes a quién preguntarle?</h4><h4 data-lang-content="en">What if something goes wrong and you have no one to ask?</h4>
-        <p data-lang-content="es">Me tienes a mí, por WhatsApp, antes y durante tu viaje.</p>
-        <p data-lang-content="en">You have me, on WhatsApp, before and during your trip.</p>
-      </div>
-    </div>
-
-    <p class="fear-outro reveal">
-      <span data-lang-content="es">Si te identificaste con al menos uno de estos... esto es para ti. ✦</span>
-      <span data-lang-content="en">If you recognized yourself in even one of these... this is for you. ✦</span>
-    </p>
-
-    <div class="inline-cta reveal">
-      <a class="btn btn-primary" href="https://wa.me/971522723154?text=Hola%20Bren%2C%20ese%20eras%20t%C3%BA%2C%20quiero%20resolver%20mis%20miedos%20y%20armar%20mi%20viaje%20%E2%9C%A8" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.09-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.24-.45.06-1.02.08-1.65-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.98-.13-.18-1.08-1.43-1.08-2.73s.68-1.93.92-2.2c.24-.26.53-.33.7-.33.18 0 .36 0 .51.01.16.01.38-.06.6.46.22.53.75 1.83.82 1.96.07.13.11.29.02.47-.09.18-.13.29-.26.45-.13.16-.28.35-.4.47-.13.13-.27.28-.12.55.16.26.7 1.16 1.51 1.88 1.04.93 1.91 1.22 2.18 1.36.26.13.42.11.57-.07.16-.18.66-.77.84-1.03.18-.26.35-.22.59-.13.24.09 1.52.72 1.78.85.26.13.44.2.5.31.07.11.07.62-.15 1.24z"/></svg>
-        <span data-lang-content="es">Cuéntame tu miedo, te lo resuelvo</span><span data-lang-content="en">Tell me your fear, I'll solve it</span>
+        <span data-lang-content="es">Ver servicios</span><span data-lang-content="en">See services</span>
       </a>
     </div>
   </div>
@@ -792,46 +698,155 @@
 
     <!-- TAB: EXPERIENCIAS EN DUBÁI -->
     <div class="tab-panel active" data-panel="experiencias">
-      <div class="xbox reveal">
-        <p class="xlead" data-lang-content="es">Tours y tickets en Dubái y Abu Dhabi con precio de socia. Toca lo que quieres y te cotizo por WhatsApp.</p>
-        <p class="xlead" data-lang-content="en">Tours and tickets in Dubai and Abu Dhabi at partner prices. Tap what you want and I'll quote you on WhatsApp.</p>
-        <div class="xlabel caps" data-lang-content="es">Tours</div><div class="xlabel caps" data-lang-content="en">Tours</div>
-        <div class="xchips">
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20Safari%20en%20el%20desierto" target="_blank" rel="noopener"><span data-lang-content="es">Safari en el desierto</span><span data-lang-content="en">Desert safari</span></a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20Yate%20compartido%20o%20privado" target="_blank" rel="noopener"><span data-lang-content="es">Yate compartido o privado</span><span data-lang-content="en">Shared or private yacht</span></a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20Crucero%20con%20cena" target="_blank" rel="noopener"><span data-lang-content="es">Crucero con cena</span><span data-lang-content="en">Dinner cruise</span></a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20City%20tour%20Dub%C3%A1i" target="_blank" rel="noopener"><span data-lang-content="es">City tour Dubái</span><span data-lang-content="en">Dubai city tour</span></a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20City%20tour%20Abu%20Dhabi" target="_blank" rel="noopener"><span data-lang-content="es">City tour Abu Dhabi</span><span data-lang-content="en">Abu Dhabi city tour</span></a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20Hatta%20y%20Khor%20Fakkan" target="_blank" rel="noopener"><span data-lang-content="es">Hatta y Khor Fakkan</span><span data-lang-content="en">Hatta & Khor Fakkan</span></a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20Globo%20aerost%C3%A1tico" target="_blank" rel="noopener"><span data-lang-content="es">Globo aerostático</span><span data-lang-content="en">Hot air balloon</span></a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20Jet%20ski%20y%20acu%C3%A1ticos" target="_blank" rel="noopener"><span data-lang-content="es">Jet ski y acuáticos</span><span data-lang-content="en">Jet ski & water sports</span></a>
-        </div>
-        <div class="xlabel caps" data-lang-content="es">Tickets de atracciones</div><div class="xlabel caps" data-lang-content="en">Attraction tickets</div>
-        <div class="xchips">
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Burj%20Khalifa" target="_blank" rel="noopener">Burj Khalifa</a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Dubai%20Frame" target="_blank" rel="noopener">Dubai Frame</a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Miracle%20Garden" target="_blank" rel="noopener">Miracle Garden</a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Aya%20Universe" target="_blank" rel="noopener">Aya Universe</a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20The%20View%20at%20The%20Palm" target="_blank" rel="noopener">The View at The Palm</a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Ski%20Dubai" target="_blank" rel="noopener">Ski Dubai</a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20IMG%20Worlds" target="_blank" rel="noopener">IMG Worlds</a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Aquaventure" target="_blank" rel="noopener">Aquaventure</a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20LEGOLAND%20Dubai" target="_blank" rel="noopener">LEGOLAND Dubai</a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Yas%20Island" target="_blank" rel="noopener">Yas Island</a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Louvre%20Abu%20Dhabi" target="_blank" rel="noopener">Louvre Abu Dhabi</a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20teamLab%20Phenomena" target="_blank" rel="noopener">teamLab Phenomena</a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Ferrari%20World" target="_blank" rel="noopener">Ferrari World</a>
-          <a class="xchip" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Warner%20Bros.%20World" target="_blank" rel="noopener">Warner Bros. World</a>
-        </div>
-        <p class="xnote" data-lang-content="es">Operado por The Royal Escape Tours LLC · empresa con licencia en EAU</p>
-        <p class="xnote" data-lang-content="en">Operated by The Royal Escape Tours LLC · UAE-licensed company</p>
-      </div>
-      <div class="inline-cta reveal">
-        <a class="btn btn-primary" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%20experiencias%20en%20Dub%C3%A1i" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.6-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg>
-          <span data-lang-content="es">Cotizar mis experiencias</span><span data-lang-content="en">Quote my experiences</span>
+      <p class="xlead xlead-center" data-lang-content="es">Tours y tickets en Dubái y Abu Dhabi con precio de socia. Toca y te cotizo por WhatsApp.</p>
+      <p class="xlead xlead-center" data-lang-content="en">Tours and tickets in Dubai and Abu Dhabi at partner prices. Tap and I'll quote you on WhatsApp.</p>
+      <div class="xgrid">
+        <a class="xcard reveal" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20Safari%20en%20el%20desierto" target="_blank" rel="noopener">
+          <div class="xcard-img"><img src="https://theroyalescapetours.com/wp-content/uploads/2026/03/Standard-Desert-Safari-1-1200x900.jpeg" alt="Safari en el desierto" loading="lazy"></div>
+          <div class="xcard-body">
+            <div class="xcard-name" data-lang-content="es">Safari en el desierto</div><div class="xcard-name" data-lang-content="en">Desert safari</div>
+            <div class="xcard-desc" data-lang-content="es">Dunas, atardecer y cena con show</div><div class="xcard-desc" data-lang-content="en">Dunes, sunset and dinner show</div>
+            <span class="xcard-cta"><span data-lang-content="es">Cotizar →</span><span data-lang-content="en">Get a quote →</span></span>
+          </div>
+        </a>
+        <a class="xcard reveal" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20Yate%20compartido%20o%20privado" target="_blank" rel="noopener">
+          <div class="xcard-img"><img src="https://theroyalescapetours.com/wp-content/uploads/2026/07/HARBOUR-11-1.jpg" alt="Yate compartido o privado" loading="lazy"></div>
+          <div class="xcard-body">
+            <div class="xcard-name" data-lang-content="es">Yate compartido o privado</div><div class="xcard-name" data-lang-content="en">Shared or private yacht</div>
+            <div class="xcard-desc" data-lang-content="es">Desayuno, atardecer o fiesta en la Marina</div><div class="xcard-desc" data-lang-content="en">Breakfast, sunset or party in the Marina</div>
+            <span class="xcard-cta"><span data-lang-content="es">Cotizar →</span><span data-lang-content="en">Get a quote →</span></span>
+          </div>
+        </a>
+        <a class="xcard reveal" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20Crucero%20con%20cena" target="_blank" rel="noopener">
+          <div class="xcard-img"><img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/Royal-Marina-Cruise-2-1200x802.jpeg" alt="Crucero con cena" loading="lazy"></div>
+          <div class="xcard-body">
+            <div class="xcard-name" data-lang-content="es">Crucero con cena</div><div class="xcard-name" data-lang-content="en">Dinner cruise</div>
+            <div class="xcard-desc" data-lang-content="es">Cena navegando entre luces</div><div class="xcard-desc" data-lang-content="en">Dinner on the water among the lights</div>
+            <span class="xcard-cta"><span data-lang-content="es">Cotizar →</span><span data-lang-content="en">Get a quote →</span></span>
+          </div>
+        </a>
+        <a class="xcard reveal" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20City%20tour%20Dub%C3%A1i" target="_blank" rel="noopener">
+          <div class="xcard-img"><img src="https://theroyalescapetours.com/wp-content/uploads/2026/03/4-1200x794.webp" alt="City tour Dubái" loading="lazy"></div>
+          <div class="xcard-body">
+            <div class="xcard-name" data-lang-content="es">City tour Dubái</div><div class="xcard-name" data-lang-content="en">Dubai city tour</div>
+            <div class="xcard-desc" data-lang-content="es">Lo esencial de Dubái en un día</div><div class="xcard-desc" data-lang-content="en">Dubai's highlights in one day</div>
+            <span class="xcard-cta"><span data-lang-content="es">Cotizar →</span><span data-lang-content="en">Get a quote →</span></span>
+          </div>
+        </a>
+        <a class="xcard reveal" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20City%20tour%20Abu%20Dhabi" target="_blank" rel="noopener">
+          <div class="xcard-img"><img src="https://theroyalescapetours.com/wp-content/uploads/2026/04/11-1200x891.webp" alt="City tour Abu Dhabi" loading="lazy"></div>
+          <div class="xcard-body">
+            <div class="xcard-name" data-lang-content="es">City tour Abu Dhabi</div><div class="xcard-name" data-lang-content="en">Abu Dhabi city tour</div>
+            <div class="xcard-desc" data-lang-content="es">Gran Mezquita y lo mejor de la capital</div><div class="xcard-desc" data-lang-content="en">Grand Mosque and the capital's best</div>
+            <span class="xcard-cta"><span data-lang-content="es">Cotizar →</span><span data-lang-content="en">Get a quote →</span></span>
+          </div>
+        </a>
+        <a class="xcard reveal" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20Monta%C3%B1as%20de%20Hatta" target="_blank" rel="noopener">
+          <div class="xcard-img"><img src="https://theroyalescapetours.com/wp-content/uploads/2026/04/2-1200x848.jpg" alt="Montañas de Hatta" loading="lazy"></div>
+          <div class="xcard-body">
+            <div class="xcard-name" data-lang-content="es">Montañas de Hatta</div><div class="xcard-name" data-lang-content="en">Hatta mountains</div>
+            <div class="xcard-desc" data-lang-content="es">Presa turquesa y montañas</div><div class="xcard-desc" data-lang-content="en">Turquoise dam and mountains</div>
+            <span class="xcard-cta"><span data-lang-content="es">Cotizar →</span><span data-lang-content="en">Get a quote →</span></span>
+          </div>
+        </a>
+        <a class="xcard reveal" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20Globo%20aerost%C3%A1tico" target="_blank" rel="noopener">
+          <div class="xcard-img"><img src="https://theroyalescapetours.com/wp-content/uploads/2026/09/Balloon-Pics-1_8_11zon-1200x798.webp" alt="Globo aerostático" loading="lazy"></div>
+          <div class="xcard-body">
+            <div class="xcard-name" data-lang-content="es">Globo aerostático</div><div class="xcard-name" data-lang-content="en">Hot air balloon</div>
+            <div class="xcard-desc" data-lang-content="es">El desierto al amanecer desde arriba</div><div class="xcard-desc" data-lang-content="en">The desert at sunrise from above</div>
+            <span class="xcard-cta"><span data-lang-content="es">Cotizar →</span><span data-lang-content="en">Get a quote →</span></span>
+          </div>
+        </a>
+        <a class="xcard reveal" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20Jet%20ski" target="_blank" rel="noopener">
+          <div class="xcard-img"><img src="https://theroyalescapetours.com/wp-content/uploads/2026/04/4_3_11zon-1200x1200.webp" alt="Jet ski" loading="lazy"></div>
+          <div class="xcard-body">
+            <div class="xcard-name" data-lang-content="es">Jet ski</div><div class="xcard-name" data-lang-content="en">Jet ski</div>
+            <div class="xcard-desc" data-lang-content="es">Adrenalina frente al Burj Al Arab</div><div class="xcard-desc" data-lang-content="en">Adrenaline by the Burj Al Arab</div>
+            <span class="xcard-cta"><span data-lang-content="es">Cotizar →</span><span data-lang-content="en">Get a quote →</span></span>
+          </div>
         </a>
       </div>
+
+      <div class="xrow-head">
+        <h3 data-lang-content="es">Tickets de atracciones</h3><h3 data-lang-content="en">Attraction tickets</h3>
+        <span class="xhint" data-lang-content="es">Desliza →</span><span class="xhint" data-lang-content="en">Swipe →</span>
+      </div>
+      <div class="xscroll">
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Burj%20Khalifa" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/61907555-8362-4f2d-aed3-e27a72200df7.webp" alt="Burj Khalifa" loading="lazy">
+          <span>Burj Khalifa</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Museum%20of%20the%20Future" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/880f9b66-8866-4e25-bc74-f0c5ac31924f.webp" alt="Museum of the Future" loading="lazy">
+          <span>Museum of the Future</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Dubai%20Frame" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/d8ef02f4-5196-450d-aa1c-b06bd67dc3a1.webp" alt="Dubai Frame" loading="lazy">
+          <span>Dubai Frame</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20The%20View%20at%20The%20Palm" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/f86d3eb1-686a-4bfb-a10c-52b1286c0276.webp" alt="The View at The Palm" loading="lazy">
+          <span>The View at The Palm</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Aya%20Universe" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/084eb6ef-00ce-4536-8c81-6ca1b0640b11.webp" alt="Aya Universe" loading="lazy">
+          <span>Aya Universe</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Ain%20Dubai" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/Ain-Dubai-Sunset-Panorama.webp" alt="Ain Dubai" loading="lazy">
+          <span>Ain Dubai</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Miracle%20Garden" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/68ee21b4-20bc-4e7f-8ff9-85f9a6ec90be.webp" alt="Miracle Garden" loading="lazy">
+          <span>Miracle Garden</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Ski%20Dubai" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/crxzxpd96zvlpq9ljsrt.webp" alt="Ski Dubai" loading="lazy">
+          <span>Ski Dubai</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Aquaventure" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/bz6fyrlqa8ysgzc0ulo6.webp" alt="Aquaventure" loading="lazy">
+          <span>Aquaventure</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20IMG%20Worlds" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/kawwmv7hrxuze3yun3a5.webp" alt="IMG Worlds" loading="lazy">
+          <span>IMG Worlds</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20LEGOLAND%20Dubai" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/19aeda1c-d84c-4b69-8f32-9742f668c621.webp" alt="LEGOLAND Dubai" loading="lazy">
+          <span>LEGOLAND Dubai</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20La%20Perle" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/Spectacular-Aquatic-Acrobatics-Show.webp" alt="La Perle" loading="lazy">
+          <span>La Perle</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Louvre%20Abu%20Dhabi" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/Louvre-Abu-Dhabi-at-Golden-Hour.webp" alt="Louvre Abu Dhabi" loading="lazy">
+          <span>Louvre Abu Dhabi</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20teamLab%20Phenomena" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/Immersive-Neon-Waterfall-Garden.webp" alt="teamLab Phenomena" loading="lazy">
+          <span>teamLab Phenomena</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Ferrari%20World" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/Ferrari-World-Thrills-in-Motion.webp" alt="Ferrari World" loading="lazy">
+          <span>Ferrari World</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Warner%20Bros.%20World" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/Vibrant-Indoor-Theme-Park-Adventure.webp" alt="Warner Bros. World" loading="lazy">
+          <span>Warner Bros. World</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Yas%20Waterworld" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/Thrilling-Family-Raft-Ride-at-Yas-Waterworld.webp" alt="Yas Waterworld" loading="lazy">
+          <span>Yas Waterworld</span>
+        </a>
+        <a class="xticket" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20tickets%20para%20Qasr%20Al%20Watan" target="_blank" rel="noopener">
+          <img src="https://theroyalescapetours.com/wp-content/uploads/2026/08/Golden-Palace-Reflections-at-Dusk.webp" alt="Qasr Al Watan" loading="lazy">
+          <span>Qasr Al Watan</span>
+        </a>
+      </div>
+      <p class="xnote" data-lang-content="es">Operado por The Royal Escape Tours LLC · empresa con licencia en EAU</p>
+      <p class="xnote" data-lang-content="en">Operated by The Royal Escape Tours LLC · UAE-licensed company</p>
     </div>
 
     <!-- TAB: VIAJES -->
@@ -986,30 +1001,6 @@
   </div>
 </section>
 
-<!-- PURPOSE / QUOTE -->
-<section class="purpose">
-  <span class="purpose-deco d1">✦</span>
-  <span class="purpose-deco d2">✦</span>
-  <span class="purpose-deco d3">✦</span>
-  <div class="wrap">
-    <div class="purpose-content reveal">
-      <div class="purpose-glass">
-        <div class="monogram"><span class="brand-flip"><span class="flip-a">b.magic ✦</span><span class="flip-b">Bren Martinez</span></span></div>
-        <h2 data-lang-content="es">Escrito en las estrellas.</h2>
-        <h2 data-lang-content="en">Written in the stars.</h2>
-        <p class="big-quote" data-lang-content="es">Cuando llegue al final de mi historia, solo quiero mirar atrás y decir: fui valiente, viajé, cumplí mis sueños y nunca dejé que el miedo dictara mi camino. Qué viaje tan increíble. ✨</p>
-        <p class="big-quote" data-lang-content="en">When I reach the end of my story, I just want to look back and say: I was brave, I traveled, I chased my dreams, and I never let fear dictate my path. What an incredible journey. ✨</p>
-        <div class="attribution">— Bren Martinez</div>
-        <div class="inline-cta reveal" style="margin-top:34px;">
-          <a class="btn btn-primary" href="#servicios">
-            <span data-lang-content="es">Empieza a escribir la tuya</span><span data-lang-content="en">Start writing yours</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- PROCESO -->
 <section id="proceso">
   <div class="wrap">
@@ -1023,27 +1014,27 @@
       <div class="process-line" id="processLine"></div>
       <div class="process-step reveal reveal-stagger" style="--i:0">
         <div class="step-num">01</div>
-        <h3 data-lang-content="es">Me escribes</h3><h3 data-lang-content="en">You reach out</h3>
-        <p data-lang-content="es">Por WhatsApp, cuéntame para dónde sueñas ir.</p>
-        <p data-lang-content="en">Message me on WhatsApp and tell me where you're dreaming of going.</p>
+        <h3 data-lang-content="es">Me escribes</h3><h3 data-lang-content="en">You message me</h3>
+        <p data-lang-content="es">Por WhatsApp, cuéntame qué necesitas: una experiencia, tu viaje o tu empresa.</p>
+        <p data-lang-content="en">On WhatsApp, tell me what you need: an experience, your trip or your company.</p>
       </div>
       <div class="process-step reveal reveal-stagger" style="--i:1">
         <div class="step-num">02</div>
-        <h3 data-lang-content="es">Platicamos tu viaje</h3><h3 data-lang-content="en">We talk it through</h3>
-        <p data-lang-content="es">Hablamos de fechas, presupuesto y qué quieres vivir.</p>
-        <p data-lang-content="en">We go over dates, budget, and what you want to experience.</p>
+        <h3 data-lang-content="es">Te cotizo</h3><h3 data-lang-content="en">I send you a quote</h3>
+        <p data-lang-content="es">Opciones, precio y tiempos, claro y en español.</p>
+        <p data-lang-content="en">Options, price and timing, clear and simple.</p>
       </div>
       <div class="process-step reveal reveal-stagger" style="--i:2">
         <div class="step-num">03</div>
-        <h3 data-lang-content="es">Te armo la ruta</h3><h3 data-lang-content="en">I build your route</h3>
-        <p data-lang-content="es">Diseño un itinerario hecho a tu medida.</p>
-        <p data-lang-content="en">I design an itinerary made just for you.</p>
+        <h3 data-lang-content="es">Lo resuelvo</h3><h3 data-lang-content="en">I handle it</h3>
+        <p data-lang-content="es">Reservas, itinerario o trámite: yo me encargo.</p>
+        <p data-lang-content="en">Bookings, itinerary or paperwork: I take care of it.</p>
       </div>
       <div class="process-step reveal reveal-stagger" style="--i:3">
         <div class="step-num">04</div>
-        <h3 data-lang-content="es">Viajas sin miedo</h3><h3 data-lang-content="en">You travel fearlessly</h3>
-        <p data-lang-content="es">Con todo resuelto y toda la suerte de tu lado.</p>
-        <p data-lang-content="en">Everything sorted, all the luck on your side.</p>
+        <h3 data-lang-content="es">Disfrutas</h3><h3 data-lang-content="en">You enjoy</h3>
+        <p data-lang-content="es">Tú solo vives Dubái, con todo resuelto.</p>
+        <p data-lang-content="en">You just enjoy Dubai, with everything sorted.</p>
       </div>
     </div>
 
@@ -1070,24 +1061,24 @@
     </div>
     <div class="faq-list reveal">
       <details class="faq-item">
-        <summary><span data-lang-content="es">¿Necesito viajar en solitario para trabajar contigo?</span><span data-lang-content="en">Do I need to travel alone to work with you?</span><span class="plus">+</span></summary>
-        <p class="faq-a" data-lang-content="es">No — trabajo con quienes viajan en solitario y también con grupos pequeños de amigos.</p>
-        <p class="faq-a" data-lang-content="en">No — I work with solo travelers and with small groups of friends too.</p>
+        <summary><span data-lang-content="es">¿Las experiencias incluyen recogida en el hotel?</span><span data-lang-content="en">Do experiences include hotel pickup?</span><span class="plus">+</span></summary>
+        <p class="faq-a" data-lang-content="es">La mayoría sí. Te lo confirmo en cada cotización.</p>
+        <p class="faq-a" data-lang-content="en">Most do. I confirm it on every quote.</p>
       </details>
       <details class="faq-item">
-        <summary><span data-lang-content="es">¿Cómo reservo una sesión?</span><span data-lang-content="en">How do I book a session?</span><span class="plus">+</span></summary>
-        <p class="faq-a" data-lang-content="es">Escríbeme por WhatsApp, platicamos tu viaje y elegimos juntas el paquete que mejor se ajuste.</p>
-        <p class="faq-a" data-lang-content="en">Message me on WhatsApp, we talk about your trip, and together we choose the package that fits best.</p>
+        <summary><span data-lang-content="es">¿Puedo reservar solo un ticket o un tour?</span><span data-lang-content="en">Can I book just one ticket or tour?</span><span class="plus">+</span></summary>
+        <p class="faq-a" data-lang-content="es">Claro. Puedes reservar una sola experiencia o armar un combo con varias.</p>
+        <p class="faq-a" data-lang-content="en">Of course. Book a single experience or build a bundle.</p>
       </details>
       <details class="faq-item">
-        <summary><span data-lang-content="es">¿Trabajas con cualquier presupuesto?</span><span data-lang-content="en">Do you work with any budget?</span><span class="plus">+</span></summary>
-        <p class="faq-a" data-lang-content="es">Sí — adapto las recomendaciones a tu presupuesto real, no a uno ideal.</p>
-        <p class="faq-a" data-lang-content="en">Yes — I adapt recommendations to your real budget, not an ideal one.</p>
+        <summary><span data-lang-content="es">¿Me armas el itinerario de todo mi viaje?</span><span data-lang-content="en">Can you plan my whole trip?</span><span class="plus">+</span></summary>
+        <p class="faq-a" data-lang-content="es">Sí. Elige tu nivel en la pestaña Viajes y te armo la ruta día por día.</p>
+        <p class="faq-a" data-lang-content="en">Yes. Pick your tier in the Travel tab and I'll plan it day by day.</p>
       </details>
       <details class="faq-item">
         <summary><span data-lang-content="es">¿Me ayudas a abrir mi empresa en Dubái?</span><span data-lang-content="en">Can you help me open my company in Dubai?</span><span class="plus">+</span></summary>
-        <p class="faq-a" data-lang-content="es">Sí, tramito licencias free zone y mainland, y la visa de inversionista. Escríbeme y vemos juntas qué te conviene.</p>
-        <p class="faq-a" data-lang-content="en">Yes, I handle free zone and mainland licenses, plus the investor visa. Message me and we'll figure out what fits you.</p>
+        <p class="faq-a" data-lang-content="es">Sí, tramito licencias free zone y mainland, y la visa de inversionista. Escríbeme y vemos qué te conviene.</p>
+        <p class="faq-a" data-lang-content="en">Yes, I handle free zone and mainland licenses, plus the investor visa. Message me and we'll see what fits you.</p>
       </details>
     </div>
   </div>
@@ -1102,11 +1093,11 @@
     <span class="twinkle-dot gold" style="top:88%; left:80%; animation-delay:.2s;"></span>
   </div>
   <div class="wrap reveal">
-    <span class="eyebrow" data-lang-content="es">✦ ESCRITO EN LAS ESTRELLAS</span><span class="eyebrow" data-lang-content="en">✦ WRITTEN IN THE STARS</span>
-    <h2 data-lang-content="es">¿Todo listo para tu próximo viaje?</h2>
-    <h2 data-lang-content="en">Ready for your next trip?</h2>
-    <p data-lang-content="es">Escríbeme por WhatsApp y armamos tu viaje sin miedo, con estilo y con toda la suerte de tu lado.</p>
-    <p data-lang-content="en">Message me on WhatsApp and let's plan your trip — no fear, all style, all the luck on your side.</p>
+    <span class="eyebrow" data-lang-content="es">✦ CONTACTO</span><span class="eyebrow" data-lang-content="en">✦ CONTACT</span>
+    <h2 data-lang-content="es">¿Lista para Dubái?</h2>
+    <h2 data-lang-content="en">Ready for Dubai?</h2>
+    <p data-lang-content="es">Experiencias, viajes o tu empresa: escríbeme por WhatsApp y lo resolvemos.</p>
+    <p data-lang-content="en">Experiences, trips or your company: message me on WhatsApp and we'll sort it out.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://wa.me/971522723154" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.09-1.33A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.24-.45.06-1.02.08-1.65-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.98-.13-.18-1.08-1.43-1.08-2.73s.68-1.93.92-2.2c.24-.26.53-.33.7-.33.18 0 .36 0 .51.01.16.01.38-.06.6.46.22.53.75 1.83.82 1.96.07.13.11.29.02.47-.09.18-.13.29-.26.45-.13.16-.28.35-.4.47-.13.13-.27.28-.12.55.16.26.7 1.16 1.51 1.88 1.04.93 1.91 1.22 2.18 1.36.26.13.42.11.57-.07.16-.18.66-.77.84-1.03.18-.26.35-.22.59-.13.24.09 1.52.72 1.78.85.26.13.44.2.5.31.07.11.07.62-.15 1.24z"/></svg>
