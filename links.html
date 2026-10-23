@@ -569,6 +569,20 @@
   .xticket span{position:absolute; left:0; right:0; bottom:0; padding:28px 12px 12px; font-size:0.82rem; font-weight:700; color:var(--white); background:linear-gradient(180deg, transparent, rgba(45,26,27,0.85));}
   @media (max-width:900px){ .xgrid{grid-template-columns:repeat(2, 1fr); gap:12px;} }
   @media (max-width:560px){ .xcard-body{padding:12px 12px 14px;} .xcard-name{font-size:0.88rem;} .xcard-desc{font-size:0.74rem;} .xticket{flex-basis:140px;} }
+  .xcard-img{position:relative;}
+  .xbadge{position:absolute; top:10px; left:10px; z-index:1; font-size:0.7rem; font-weight:700; color:var(--mauve-deep); background:var(--gold); padding:5px 11px; border-radius:999px;}
+  .ramadan{max-width:900px; margin:0 auto 44px; border-radius:28px; overflow:hidden; border:1.5px solid var(--gold); box-shadow:var(--shadow);
+    background:linear-gradient(135deg, rgba(60,36,38,0.94), rgba(92,59,61,0.86)), url("https://theroyalescapetours.com/wp-content/uploads/2026/03/Standard-Desert-Safari-3-1200x900.jpeg") center/cover;}
+  .ramadan-text{padding:34px 32px; color:var(--cream); display:flex; flex-direction:column; gap:10px; max-width:600px;}
+  .ramadan-tag{align-self:flex-start; font-size:0.68rem; font-weight:700; letter-spacing:0.06em; color:var(--mauve-deep); background:var(--gold); padding:6px 13px; border-radius:999px;}
+  .ramadan h3{font-size:clamp(1.6rem, 4vw, 2.2rem); font-weight:700; color:var(--white); margin:4px 0 0;}
+  .ramadan-dates{font-size:0.9rem; font-weight:700; color:var(--gold); margin:0;}
+  .ramadan-text p{font-size:0.95rem; line-height:1.6; margin:0; opacity:0.9;}
+  .ramadan-list{list-style:none; padding:0; margin:6px 0 4px; display:flex; flex-wrap:wrap; gap:8px;}
+  .ramadan-list li{font-size:0.78rem; font-weight:700; padding:7px 13px; border-radius:999px; border:1px solid rgba(253,246,232,0.35);}
+  .ramadan-cta{align-self:flex-start; margin-top:8px; background:var(--gold); color:var(--mauve-deep); font-weight:700; font-size:0.88rem; padding:13px 24px; border-radius:999px; transition:transform .25s ease;}
+  .ramadan-cta:hover{transform:translateY(-2px);}
+  @media (max-width:560px){ .ramadan-text{padding:26px 20px;} }
 </style>
 </head>
 <body>
@@ -654,10 +668,10 @@
       <div class="reveal">
         <div class="monogram"><span class="brand-flip"><span class="flip-a">b.magic ✦</span><span class="flip-b">Bren Martinez</span></span></div>
         <h2 data-lang-content="es">Sobre mí</h2><h2 data-lang-content="en">About me</h2>
-        <p class="bio" data-lang-content="es"><strong>Mexicana, ex abogada y viviendo en Dubái desde 2023.</strong> Lo que ya viví aquí, te lo resuelvo a ti.</p>
-        <p class="bio" data-lang-content="en"><strong>Mexican, former lawyer, living in Dubai since 2023.</strong> What I've already lived here, I sort out for you.</p>
+        <p class="bio" data-lang-content="es"><strong>Mexicana, abogada y reclutadora internacional, viviendo en Dubái desde 2023.</strong> Lo que ya viví aquí, te lo resuelvo a ti.</p>
+        <p class="bio" data-lang-content="en"><strong>Mexican lawyer and international recruiter, living in Dubai since 2023.</strong> What I've already lived here, I sort out for you.</p>
         <div class="about-credentials">
-          <span class="credential" data-lang-content="es">Ex-reclutadora internacional</span><span class="credential" data-lang-content="en">Former international recruiter</span>
+          <span class="credential" data-lang-content="es">Reclutadora internacional</span><span class="credential" data-lang-content="en">International recruiter</span>
           <span class="credential" data-lang-content="es">Abogada (México)</span><span class="credential" data-lang-content="en">Lawyer (Mexico)</span>
           <span class="credential" data-lang-content="es">Coaching ejecutivo</span><span class="credential" data-lang-content="en">Executive coaching</span>
         </div>
@@ -690,6 +704,25 @@
       <h2 data-lang-content="es">¿Qué buscas hoy?</h2><h2 data-lang-content="en">What are you looking for today?</h2>
     </div>
 
+    <div class="ramadan reveal">
+      <div class="ramadan-text">
+        <span class="ramadan-tag">🌙 <span data-lang-content="es">VIAJE GRUPAL · LUGARES LIMITADOS</span><span data-lang-content="en">GROUP TRIP · LIMITED SPOTS</span></span>
+        <h3 data-lang-content="es">Dubái en Ramadán</h3><h3 data-lang-content="en">Dubai during Ramadan</h3>
+        <p class="ramadan-dates">24 feb – 7 mar 2027 · <span data-lang-content="es">12 días</span><span data-lang-content="en">12 days</span></p>
+        <p data-lang-content="es">Vive Dubái en su mes más mágico. Volamos juntos desde México y yo te acompaño todo el viaje.</p>
+        <p data-lang-content="en">Experience Dubai in its most magical month. We fly together from Mexico and I'm with you the whole trip.</p>
+        <ul class="ramadan-list">
+          <li data-lang-content="es">Cañón de iftar</li><li data-lang-content="en">Iftar cannon</li>
+          <li data-lang-content="es">Iftar en el desierto</li><li data-lang-content="en">Iftar in the desert</li>
+          <li data-lang-content="es">Iftar en hotel de lujo</li><li data-lang-content="en">Iftar at a luxury hotel</li>
+          <li data-lang-content="es">Transporte privado</li><li data-lang-content="en">Private transport</li>
+        </ul>
+        <a class="ramadan-cta" href="https://wa.me/971522723154?text=Hola%20Bren%20%F0%9F%8C%99%20quiero%20info%20del%20viaje%20Dub%C3%A1i%20en%20Ramad%C3%A1n" target="_blank" rel="noopener">
+          <span data-lang-content="es">Quiero mi lugar →</span><span data-lang-content="en">Save my spot →</span>
+        </a>
+      </div>
+    </div>
+
     <div class="service-tabs reveal">
       <button class="stab active" data-tab="experiencias" onclick="setTab('experiencias')">✦ <span data-lang-content="es">Experiencias en Dubái</span><span data-lang-content="en">Dubai experiences</span></button>
       <button class="stab" data-tab="viajes" onclick="setTab('viajes')">✦ <span data-lang-content="es">Viajes</span><span data-lang-content="en">Travel</span></button>
@@ -702,10 +735,18 @@
       <p class="xlead xlead-center" data-lang-content="en">Tours and tickets in Dubai and Abu Dhabi at partner prices. Tap and I'll quote you on WhatsApp.</p>
       <div class="xgrid">
         <a class="xcard reveal" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20Safari%20en%20el%20desierto" target="_blank" rel="noopener">
-          <div class="xcard-img"><img src="https://theroyalescapetours.com/wp-content/uploads/2026/03/Standard-Desert-Safari-1-1200x900.jpeg" alt="Safari en el desierto" loading="lazy"></div>
+          <div class="xcard-img"><span class="xbadge">⭐ <span data-lang-content="es">Favorito</span><span data-lang-content="en">Top pick</span></span><img src="https://theroyalescapetours.com/wp-content/uploads/2026/03/Standard-Desert-Safari-1-1200x900.jpeg" alt="Safari en el desierto" loading="lazy"></div>
           <div class="xcard-body">
             <div class="xcard-name" data-lang-content="es">Safari en el desierto</div><div class="xcard-name" data-lang-content="en">Desert safari</div>
             <div class="xcard-desc" data-lang-content="es">Dunas, atardecer y cena con show</div><div class="xcard-desc" data-lang-content="en">Dunes, sunset and dinner show</div>
+            <span class="xcard-cta"><span data-lang-content="es">Cotizar →</span><span data-lang-content="en">Get a quote →</span></span>
+          </div>
+        </a>
+        <a class="xcard reveal" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20City%20tour%20Abu%20Dhabi" target="_blank" rel="noopener">
+          <div class="xcard-img"><span class="xbadge">⭐ <span data-lang-content="es">Favorito</span><span data-lang-content="en">Top pick</span></span><img src="https://theroyalescapetours.com/wp-content/uploads/2026/04/11-1200x891.webp" alt="City tour Abu Dhabi" loading="lazy"></div>
+          <div class="xcard-body">
+            <div class="xcard-name" data-lang-content="es">City tour Abu Dhabi</div><div class="xcard-name" data-lang-content="en">Abu Dhabi city tour</div>
+            <div class="xcard-desc" data-lang-content="es">Gran Mezquita y lo mejor de la capital</div><div class="xcard-desc" data-lang-content="en">Grand Mosque and the capital's best</div>
             <span class="xcard-cta"><span data-lang-content="es">Cotizar →</span><span data-lang-content="en">Get a quote →</span></span>
           </div>
         </a>
@@ -730,14 +771,6 @@
           <div class="xcard-body">
             <div class="xcard-name" data-lang-content="es">City tour Dubái</div><div class="xcard-name" data-lang-content="en">Dubai city tour</div>
             <div class="xcard-desc" data-lang-content="es">Lo esencial de Dubái en un día</div><div class="xcard-desc" data-lang-content="en">Dubai's highlights in one day</div>
-            <span class="xcard-cta"><span data-lang-content="es">Cotizar →</span><span data-lang-content="en">Get a quote →</span></span>
-          </div>
-        </a>
-        <a class="xcard reveal" href="https://wa.me/971522723154?text=Hola%20Bren%20%E2%9C%A8%20quiero%20cotizar%3A%20City%20tour%20Abu%20Dhabi" target="_blank" rel="noopener">
-          <div class="xcard-img"><img src="https://theroyalescapetours.com/wp-content/uploads/2026/04/11-1200x891.webp" alt="City tour Abu Dhabi" loading="lazy"></div>
-          <div class="xcard-body">
-            <div class="xcard-name" data-lang-content="es">City tour Abu Dhabi</div><div class="xcard-name" data-lang-content="en">Abu Dhabi city tour</div>
-            <div class="xcard-desc" data-lang-content="es">Gran Mezquita y lo mejor de la capital</div><div class="xcard-desc" data-lang-content="en">Grand Mosque and the capital's best</div>
             <span class="xcard-cta"><span data-lang-content="es">Cotizar →</span><span data-lang-content="en">Get a quote →</span></span>
           </div>
         </a>
